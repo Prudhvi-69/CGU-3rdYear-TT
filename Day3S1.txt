@@ -1,0 +1,62 @@
+Well 10m deep. Frog jumps 3m up, slides 2m down nightly. Count the days to escape. Check the escape after the jump not slide.
+
+Inputs : 
+depth = 10
+up = 3
+down = 2 
+
+output : 8
+
+
+
+
+
+
+Input : 69184504802493710
+Output : 8
+
+Input : 4691872
+Output : 1
+
+
+1. 
+rem = num % 9;
+if ( rem == 0) 
+	print 9 
+else 
+	print rem 
+2. 
+res  = 1 + ((num - 1) % 9) 
+print res 
+
+
+System.out.print (1 + ((num - 1) % 9) )
+
+
+Input1 : 1000 
+Input2 : 9999
+
+Output : 1001, 1111, 1221, 1331, 1441, 1551, 1661, 1771, 1881, 1991, 2002, 2112, 2222, 2332, 2442, 2552, 2662, 2772, 2882, 2992, 3003,.... 9009, 9119,.......9889, 9999
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+

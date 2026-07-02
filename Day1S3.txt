@@ -1,0 +1,62 @@
+Whoever is going to enter next should say Good morning 
+
+if not they will be punished 
+
+All Human People sitting in the class are going to take a piece of paper and start writing down the topics and concepts which you wish could be taught during the training session. 
+
+Irrespective of any specific language.
+I will be trying to cover all the things which you people are going to ask and write in those papers.................... '_'
+ 
+16:06 26-06-2026
+
+
+
+
+
+
+
+Input :    [ 9,7,18,45,26,15,23,69,42,11,88,39,49,59 ]
+Output : [ 9,7,18,45,26,15,23,42,11,88,39,49,59,59 ]  
+
+target = 69 
+index  = -1;
+for(i = 0 ; i < n ; i++)
+{ 
+	if (arr[i] == target ) 
+	{ 	
+		index  = i;
+		break;
+	} 
+}
+for( i = index ; i < n-1 ; i++ ) 
+{ 
+	arr[i] = arr[i+1] 
+} 
+// Display the entire array from first to last, by skipping the last one
+// By using an extra array to store all values except the value which you want to delete using a continue statement
+// 
+
+H_W / F_W / P_W / R_W : 
+
+Q1 : an values into a binary array strictly and keep all zeroes to the left side in the array and ones to the right side
+Q2 : 
+
+Input :    [ 0,1,1,1,1,0,0,2,2,2,1,0,2 ] 
+Output : [ 2,2,2,2,0,0,0,0,1,1,1,1,1 ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

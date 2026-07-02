@@ -1,0 +1,78 @@
+Take a piece of paper and write down the topics and concepts or methods, which you are seeking to learn during the training seessions and also mention them clearly so it will be specific for individual and also for everyone in the class. 
+
+
+Be a Goood Human Person. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Input1 : 	[ 5, 7, 7, 3, 13, 47, 8, 66, 69, 59, 49, 39, 88, 42, 45, 67, 99 ]
+Input2 : 69 
+
+Output : [ 5, 7, 7, 3, 13, 47, 8, 66, 59, 49, 39, 88, 42, 45, 67, 99 ]
+
+
+
+Input1 : [ 4,10,9,42,15,45,7,51,19,69,88,42 ]
+Input2 : 15
+
+Output : [ 4,10,9,42,45,7,51,19,69,88,42 ]
+
+
+
+
+
+
+
+
+
+[ 1 2 3 4 5 ] 
+
+key =  3 
+
+1 2 4 5 
+
+
+if => 0 to i < n-1 
+
+[ 1 2 4 5 5 ]   // skip the last index 
+
+newArray = []
+
+[ 1 2 4 5 ]  // extra space for number of values 
+
+
+ 
+
+
+
+Input :    [111,11,4,69,10,9,4,42,15,45,7,69,51,19,69,88,42 ]
+
+Output : [111,11,69,10,9,42,15,45,7,69,51,19,69,88,42 ]
+
+
+
+H_W / P_W / F_W / R_W : 
+
+Input :    [1,0,1,0,1,0,0,0,0]
+Output : [0,0,0,0,0,0,1,1,1]
+
+
+Input :    [1,0,2,0,2,0,1,0,1,0,2]
+Output : [2,2,2,0,0,0,0,0,1,1,1]
+
+ 
+
+

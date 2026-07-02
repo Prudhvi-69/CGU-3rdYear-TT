@@ -1,0 +1,125 @@
+Yokoso Watashi No Soul Society
+
+Ohayoooo Gozaimasuuu Minnaaa-saan
+
+Welcoming all the Human People into the Class
+
+Shall we await the arrival of more Human People entering this dungeon or we shall feast with the Humans that have arrived and let us begin the ritual.......
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Input1 : 1000 
+Input2 : 9999
+
+Output : 1001, 1111, 1221, 1331, 1441, 1551, 1661, 1771, 1881, 1991, 2002,.............................9669, 9779, 9889, 9999 
+
+
+Input1 : 601 
+Input2 : 700 
+
+Output : 606, 616, 626, 636, 646, 656, 676, 686, 696 
+
+
+Input1 : 3
+Input2 : 25
+
+Output : 3,4,5,6,7,8,9,11,22 
+
+
+
+
+
+
+
+
+
+
+
+
+start = 1000
+end = 9999
+
+for(int i = start ; i <= end ; i++)
+{ 
+	int temp = i ; 
+	int rev = 0; 
+	while( temp ! = 0 )
+	{ 
+		int digit = temp % 10;
+		rev = rev * 10 + digit;
+		temp = temp / 10;
+	} 
+	if( rev == i )
+		print i 
+}
+
+
+
+
+
+Input : 569718232450 
+Output : 7
+
+5+6+9+7+1+8+2+3+2+4+5+0 = 52
+52 = 5+2 = 7 
+7 
+
+
+Input : 34502
+Output : 5 
+
+int sum = 0; 
+while( num >= 10) 		5<= 10 
+{ 
+	while( num ! = 0 ) // 14,  1, 0   
+	{ 
+		int digit = num % 10;    // 4, 1   
+		sum = sum  + digit; // 0+4 = 4+1= 5   
+		num = num / 10;    // 1, 0     
+	} 
+	num = sum;
+	sum = 0;
+} 
+print num --->  5 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

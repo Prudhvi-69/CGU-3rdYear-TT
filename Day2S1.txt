@@ -1,0 +1,110 @@
+How many came to the class with home work??
+
+
+
+
+
+
+
+
+
+
+float input : 769.51
+output : 76951 
+
+float input : 769.5145
+output : 7695145 
+
+
+
+
+
+num = 741.258
+new = 0
+while ( num - int(num) != 0 )  // == 0.258 == 0 
+{ 				// 741.258 - 741 ! = 0 --> 0.258
+		new = num*10
+} 
+
+
+Input : "C30G41U i0s G37re69at511"
+Output : 511
+
+Input : "C10GU i20s Gre60at"
+Output : 60
+
+input = 123 				
+res = 0 
+while( input ) 
+{
+	digit = input % 10;   // 3, 2, 1  
+	res = res * 10 + digit;  // 0, 0*10+3 = 3*10+2 = 32*10+1= 321 //  Number constuction 
+	input /= 10;  //12, 1, 0 													// Number destruction 
+} 
+print res 
+
+
+
+"C10GU i20s Gre60at444" 
+
+max  = -1 
+num = 0
+for(  0 ---> last )
+{ 
+	if( str[i] > = '0' && str[i] < = '9'  )
+	{	
+		int digit = str[i] - '0'; // '1' - '0' ---> 49 - 48 = 1
+		num = num * 10 + digit  /// 1 * 10 + 0 
+		if( num > max)		
+			max = num		
+	} 
+	else
+	{ 
+		num = 0 
+	} 
+} 
+
+
+
+H_W / H_W / F_W / P_W / R_W : 
+
+
+Input : " Temparature is very low as : -69f "
+Output : -69 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

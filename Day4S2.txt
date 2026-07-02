@@ -1,0 +1,142 @@
+We have 1 min 9 secs to start the class
+
+Shall we await the arrival of more Human People into this Dungeon? or We shall proceed with the ritual without the awaiting of more of these Human People into our Dungeon....??
+
+The Legion commander requires an answer...!!
+
+Let us BEGIN the ritual🍋🌶️🥥💀📚
+
+
+
+
+
+
+
+
+On the count of 3,2,1 
+
+I want you all Human People to raise your left hands if you have ever watched movies/shows/dramas having or related to "ZOMBIES🧟"
+
+
+You are going to write a code by taking one integer input as the Generation cycle. 
+You are going to find out how many zombies will be there after these many Generations. 
+Every 5th zombifying human person is going to be immune to the zombie infection. 
+Find out how many zombies will be present after certain Generations. 
+
+Input : 3 
+Output : 7 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4th ->  1 1 1 1 1 1 1 1 1 1 1 1 1
+5th ->  				15	16	17	18	19		20	21	22	23	24	
+			1 	0 	1 	1 	1 	1 	1 	0 	1	1	1	1	1		 
+			14	15	16	17	18	19	20  21 	22	23	24	25	26
+
+
+
+
+
+
+
+
+
+
+GEN-0 : 1 
+GEN-1 : 2
+GEN-2 : 4
+GEN-3 : 7
+GEN-4 : 13
+GEN-5 : 24 
+GEN-6 : 44
+GEN-7 : 80
+
+
+
+
+
+Integer Input :   690471
+Output Sequence : 
+690471 
+60471
+6041
+041
+01
+0
+
+
+'
+
+
+
+
+
+
+
+
+
+Find out how many zombies will be there after 9 Generations and 10 Generations, then we can go for solving the code accordinng your answers. 
+
+Hint : Find out the pattern of Human people being Zombified each time in every generation and after every 5 zombies 6th Zombifying Human is going to be IMMUNE. 
+⚠️Do not think of any number related pattern and count immunes, but count Zombies ONLY. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

@@ -1,0 +1,54 @@
+0 - 1													-- 1 
+1 - 1 1 												-- 2 
+2 - 1 1 1 1 										-- 4
+3 - 1 1 1 1 1 1 1  					   -- 7 
+4 - 1 1 1 1 1 1 1 1 1 1 1 1 1  -- 13 
+5 - 1 1 1 1 1 1 1 1 1 1 1 1 1  -- 24 
+	  1 		0 	1	 	1 	1 	1 	1 	0 	1 	1 	1 	1 	1
+		14  15  16  17 18  19   20  21  22  23 24 25  26
+6 - 44 
+7 - 80 
+8 - 147 
+
+
+zom = zom + ( zom - (zom / 5) ) 
+
+
+
+H_W / H_W / P_W / F_W / R_W : 
+
+Find out how many total zombies will be there after 9 generations (GEN-9) 
+
+
+Integer Input :  49623
+Output Sequence :  
+49623
+4623
+423
+23
+2
+
+Integer Input : 7531
+Output : 
+7531
+531
+31
+1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

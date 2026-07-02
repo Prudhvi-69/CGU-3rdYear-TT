@@ -1,0 +1,128 @@
+Welcoming all Human People into this Box of Walls
+
+How much Cursed Energy does the rows in the front are being occupied with?
+
+Shall we wait for any more of your companions? or Shall we begin?
+
+Let the Havens wait for the ones who shall await the Hel(Norse).
+
+Let the Darth Vader show his wrath on this insolent creatures.
+
+You all are here today for pushing limits far beyond any Magic Knight has ever.
+
+Let us all have a feast on Devil Fruits.
+
+
+
+
+
+
+
+Maximum Output : HOllow Purple 
+
+Input : "C4G1U1 i6s Gr4e2AT123   "
+Output : 6
+
+
+Input : "C0GU i0s Gre0at000"
+Output : 0
+
+
+Input : "C2G3U i9s Gr5ea1t"
+Output : 9 
+
+
+
+for i in range(len(str)):
+
+
+Input : "C2G3U i9s Gr5ea1t"   /// Maximum digit in a string ocntaining alpha numeric valies in it 
+Output : 9 
+
+max  = 0 
+for( i = 0 ; i < str.length() ; i++) 
+{ 
+	if ( str[i] >= '0' && str[i] <= '9' ) 
+	{ 
+		int digit = str[i] - '0'; //  '2' - '0' = 2  // 50 - 48 = 2  // 57 - 48 = 9 
+		if ( digit > max ) 
+			max = digit    // 2,3,9 
+	} 
+} 
+print max   // 9 
+------------------------------ ASCII values from '0' to '9' are ranging from 48 to 57-----------------------------
+Input : "C42G300U i69s Gr52ea18t"  
+// Maximum number in a string containing alpha numeric values 
+
+
+Output : 300
+
+
+int num = 123  
+int rev = 0
+
+while( num ) // 123, 12, 1, 0 
+{ 
+	int digit = num % 10;  // 3, 2 , 1  
+	rev = rev * 10 + digit; // 0*10+3 = 3*10+2 = 32*10+1 = 321  // Number Construction 
+	num /= 10;  // 12, 1, 0 											//  Number Destruction 
+}
+print rev ===> 321 
+
+
+
+
+
+
+Input : "C42G300U i69s Gr52ea18t"  
+Output : 300
+
+max  = 0 
+new = 0 
+for( i = 0 ; i < str.length() ; i++) 
+{ 
+	if ( str[i] >= '0' && str[i] <= '9' ) 
+	{ 
+		int digit = str[i] - '0'; 
+		new = new * 10 + digit;   // 43*10+3 
+		if ( new > max )   // 42>0, 300>42 , 69>300, 52>300, 18>300 
+			max = new 	// 42, 300 
+	} 
+	else
+		new = 0 
+} 
+print max = 300 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+float input : 115.158
+integer output : 115158 
+
+
+
+
+
+
+
+
+
+

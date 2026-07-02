@@ -1,0 +1,124 @@
+Welcome all Human People....
+
+
+Last two rows on the left and right side shall arrive on the frontlines in this battlefield.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Integer Input : 7869421
+Output Sequence : 
+
+7869421
+786421
+76421
+6421
+421
+21
+1
+
+
+
+Integer Input : 819435
+Output : 
+
+819435
+81435
+1435
+143
+13
+1
+2716
+216
+21
+1
+
+int InputNum = 2716
+while( InputNum > 0)		
+{ 	
+	print InputNum; 
+	int temp = InputNum;
+	int max = -1;	
+	while( temp > 0 )
+	{	 
+		int digit = temp % 10;  // 6, 1, 7, 2 
+		if( digit > max )  
+			max = digit;   // -1, 6, 7 
+		temp = temp / 10; 
+	}	 
+	temp = InputNum;   // 2716
+	int rev = 0;
+	while( temp > 0 )
+	{ 
+		int digit  = temp % 10;
+		rev = rev * 10 + digit;     // 6172
+		temp = temp/10;
+	}
+	temp = rev;   // 6712 
+	int result = 0;
+	while( temp > 0 )  // 6
+	{ 
+		int digit = temp % 10;  // 2,1,7,6
+		if ( digit == max )  
+		{ 
+			temp = temp / 10;
+			continue;
+		}
+		else
+		{
+			result = result * 10 + digit;  // 0*10+2 = 2*10+1=21*10+6 = 216
+			temp = temp / 10;
+		} 
+		InputNum = result; // 216
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+There is a FROG in a well, just like class, and it is trying to go out of the well just like you people wanting to go out of the class as quickly as possible. So it is going to jump out of the well but the problem is, you can jump only 3m at once per day, and after every jump it is going to slide down 2m from the place it has reached to the down. And it is going to repeatedly do the same thing until you people get out of the class, and you are going to find out how many days it will take for the frog to get out of the class.
+
+You are going to take an integer input showing the depth of the well and you are going to write a code to display, how many days it will take for the frog to get out of the class.
+
+Input : 7 
+Output :  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

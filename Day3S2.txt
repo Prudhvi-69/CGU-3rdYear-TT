@@ -1,0 +1,90 @@
+You all are Human People.
+Welcome to the Dungeon, Human People.
+"🎵🎵🎵
+This is the END.........
+Hold your breath and 
+
+"
+
+
+
+
+There is a well like this class and there are so many frogs in it, as we know that the frogs are going to make noises and trying to jump and get out of the well just like the Human People in this class at this point. Where we will be imagining that the frogs cannot escape the entire well at once, instead they are going to jump and slide due to slippery-ness on the walls of the well. We will take something like the length of the jump can be considered as 3m and as we know the frogs are going to slide down too, after every jump, let us consider the sliding depth as 2m and consider taking an input where that input is going to be the depth of the well. And you are going to find out how many days it will take for the frog to get out of the well by performing jumps and slides on the walls of the well each day. 
+Remember each day the student can jump once and slide once and you need to find out how many it will take for the student to get out of the class. 
+
+
+if depth <= 3 
+	print 1 
+else 
+	days = depth - 2 
+	print days 
+
+
+	
+input1 : 1000
+input2 : 9999
+
+output : 1001, 1111, 1221, 1331, 1441, 1551, 1661, 1771, 1881, 1991, 2002, 2112, 2222, 2332, 2442  ......... 9669, 9779, 9889, 9999
+
+
+
+input1 : 690 
+input2 : 1024 
+
+Output : 696, 707, 717, 727, 737, 747, 757,........... 1001 
+
+
+Input : 6940861802457039821
+Output : 2
+
+
+Input :   817117309
+Output : 1
+
+And for the people who are still solving this can look the screen and i will be typing 2 scenarios of solving this current question without using any loop or recursion.
+
+1. 
+rem = num % 9
+if ( rem == 0 ) 
+	print 9 
+else 
+	print rem 
+
+2. 
+res = 1 + ( ( num-1) % 9 ) 
+print res 
+
+
+
+
+
+
+For people who have solved this current one, i am going to give the next question. 
+
+
+Input : "Today the temparature is good at : -69f"
+
+Output : -69 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

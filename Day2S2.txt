@@ -1,0 +1,136 @@
+[ 0,0,1,0,1,1,0,1,0 ]
+[ 0,0,0,0,0,1,1,1,1 ]
+
+[ 0,1,0,2,1,0,1,0,2,2 ] 
+[ 2,2,2,0,0,0,0,1,1,1 ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Input1 : "NOC1G4U6 i0s G1re5at"
+Output1 : 6
+
+Input2 : "C0GU i0s Gre0at"
+Output2 : 0
+
+Input3 : "A1ll of yo0u are Hu5man Peo7ple"
+Output3 : 7
+
+
+
+Input : "Sir15 Kasa10m i2s no4t v12ery sar69cast18ic"
+Output : 69 
+
+
+
+
+
+
+
+Input : "C5G5U6 i8s Gr04eat2"
+Output : 8
+
+
+int max = -1;
+for( i = 0 ----> last ) 
+{ 
+	if( str[i] >= '0'  && str[i] <= '9' )   // str[i] >= 48 && str[i] <= 57  # ord(str[i]) >= 48 and ord(str[i]) <=57
+	{ 
+		int digit = str[i] - '0';  // 53  - 48 = 5 
+		if ( digit > max )
+			max = digit;
+	} 	
+}
+print max 
+
+
+
+Input : "Sir15 Kasa10m i2s no4t v12ery sar69cast18ic"
+
+
+
+Reverse 
+
+int num = 123 
+int rev = 0 
+
+while( num ) //123, 12, 1, 0 
+{
+	int digit = num % 10;   // 3, 2, 1 
+	rev = rev * 10 + digit;  // 0, 0*10+3  = 3*10+2 = 32*10+1 = 321    // Number Construction  
+	num /= 10;				// 12 , 1, 0  								// Number Destruction 
+} 
+
+print rev 
+
+
+
+
+
+
+
+
+Input : "Sir15 Kasa10m i2s no4t v12ery sar69cast18ic"
+
+num = 0;
+max  = -1;
+for( i = 0 to last ) 
+{ 
+	if( str[i] >= '0'  && str[i] <= '9' )   // str[i] >= 48 && str[i] <= 57  # ord(str[i]) >= 48 and ord(str[i]) <=57
+	{ 
+		int digit = str[i] - '0';
+		num = num * 10 + digit;
+		if( num > max )
+			max = num 
+	} 
+	else
+		num = 0 
+}
+print max 
+
+float input : 147.69
+integer Output : 14769 
+
+⚠️DO NOT USE OR CONVERT INTO STRING
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
