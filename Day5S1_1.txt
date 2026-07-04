@@ -1,0 +1,161 @@
+Input : 469718
+Output Sequence : 
+
+23267
+1141
+033
+30
+3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+n = int(input())
+zombies = [1,2,4,7]   # 6
+if n <=3:
+     print(zombies[n])
+else:
+	  for i in range(4, n+1)
+			val = 2* zombies[i-1] -zombies[i-4]
+			if val % 9==0:
+				val -= 1
+			zombies.append(val)
+	  print(zombies[n])
+
+
+
+
+
+4 
+	2 * 7 - 1 =  13 
+5 
+	2 * 13 - 2 = 24 
+6 
+	2 * 24 - 4 = 44
+7 
+	2 * 44 - 7 = 81-1  = 80 
+8 
+	2 * 80 - 13 = 147 
+9 
+	2 * 147 - 24 = 270 - 1 = 269 
+10 
+	2 * 269 - 44 = 494
+
+	
+
+
+
+
+
+
+Integer Input : 52183
+Output Sequence 
+
+52183 
+5213
+213
+21
+1
+
+inputVal = 52183    //   inputVal / 100, (inputVal%100)%10  
+while( inputVal > 9 )  
+{ 
+	print inputVal;
+	int temp = inputVal 
+	int max = -1;
+	while( temp > 0 )      // Largest Digit everytime  ---> 8
+	{ 
+		int digit = temp % 10;
+		if ( digit > max ) 
+			max = digit;	
+		temp /= 10;
+	} 
+ 	temp = inputVal;
+	int rev = 0;
+	while( temp > 0 )    // Reverse the Original integer value   
+	{ 
+		int digit = temp % 10;
+		rev = rev * 10 + digit; 			// 3
+		temp /= 10;
+	} 
+	temp = rev;  
+	result = 0;
+	while ( temp > 0 ) 		// Reform the original by skipping the largest digit everytime 
+	{ 
+		int digit = temp % 10;   // 5 ,2, 1, 8, 3 
+		if ( digit == max ) 
+		{ 
+			temp /= 10;
+			continue;
+		} 
+		result = result * 10 + digit;  // 0*10+5 = 5*10+2 = 52*10+1= 521*10+3 = 5213 
+		temp /= 10; 
+	} 
+	inputVal = result; 
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Secret Input Number : 987
+
+987 = 24 * 9 
+216 = 9 * 6 
+54 = 9 * 5 
+45 = 9 * 5
+45 = 9 * 5 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

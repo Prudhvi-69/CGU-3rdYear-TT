@@ -1,0 +1,111 @@
+int main(){
+int gen=7;
+int generation=gen;
+int last_gen=1;
+int total=1;
+bool flag=flase;
+while(gen>=1){
+	for(int i=1;i<=last_gen;i++){
+		if((total+1)%5!=0 || flag)  // 
+		{ 
+			total++;
+			flag=false;
+		}
+		else{
+			flag=true;
+		}
+	}
+	last_gen=total;
+	gen--;
+}
+cout<<"total zombies after"<<generation<<total<<endl;
+return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	temp = rev;  
+	result = 0;
+	while ( temp > 0 ) 		// Reform the original by skipping the largest digit everytime 
+	{ 
+		int digit = temp % 10;   // 5 ,2, 1, 8, 3 
+		if ( digit == max ) 
+		{ 
+			temp /= 10;
+			continue;
+		} 
+		result = result * 10 + digit;  // 0*10+5 = 5*10+2 = 52*10+1= 521*10+3 = 5213 
+		temp /= 10; 
+	} 
+	inputVal = result; 
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Open this link and join
+
+tinyurl.com/G1TT5S
+
+
+GitHub repo : 
+
+https://github.com/Prudhvi-69/CGU-3rdYear-TT.git
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

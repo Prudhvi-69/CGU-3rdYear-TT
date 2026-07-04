@@ -1,0 +1,211 @@
+Village containing N people 
+
+Every year 20% of the population migrates to another place 
+And also every year 15 new people are coming to this village
+If it it is a leap year you are going to make 9 more people leave the village
+
+By taking input of N resembling total number of people in the village at the start
+
+Find out how many are remaining after certain years. 
+
+
+
+
+
+
+If the current strength is divisible by 4, divide it by 2.
+Otherwise, increase it by 3.
+Every 3rd cycle, the virus loses 1 extra strength.
+Stop when the strength becomes 1 or less.
+
+Print the number of cycles required.
+
+Example
+Input:
+25
+Output:
+
+
+1. 25+3=28 
+2. 14
+3. 13
+4. 17
+5. 20
+6. 10-1 = 9
+7. 12
+8. 6 
+9. 9-1 = 8 
+10. 8/2 = 4
+11. 4/2 = 2
+12. 1+3 = 4-1 
+13. 3+3 =   
+
+
+
+
+
+
+
+
+
+
+Q6 : Galactic Fuel
+
+A futuristic spacecraft generates energy using a special sequence of fuel cells. The first three generations of fuel cells are already initialized inside the reactor.
+As the reactor evolves, each new generation of fuel cells is produced based on the previous generations. However, the reactor is unstable and follows certain hidden transformation rules during specific generations.
+Given an integer N, representing the generation number, determine the number of fuel cells present in the Nth generation.
+
+Input : A single integer N representing the required generation.
+
+Output : Print the number of fuel cells in the Nth generation.
+
+
+Input : 1
+Output : 1
+
+
+Input : 4
+Output : 5
+
+Input : 8
+Output : 56
+
+
+
+
+
+
+Q1 : Population Migration
+
+A village starts with N people.
+
+Every year:
+
+20% of the population migrates away.
+Then 15 new people arrive.
+Every 4th year, 10 additional people leave.
+Population is always rounded down after migration.
+
+Input is the number of years.
+
+Print the final population.
+
+Example
+Input:
+6
+
+Output:
+49
+
+Q2. Virus Mutation Cycle
+
+A virus starts with a strength equal to the input value N.
+
+For every cycle:
+
+If the current strength is divisible by 4, divide it by 2.
+Otherwise, increase it by 3.
+Every 3rd cycle, the virus loses 1 extra strength.
+Stop when the strength becomes 1 or less.
+
+Print the number of cycles required.
+
+Example
+Input:
+25
+
+Output:
+6
+
+Q3 : Robot Battery Drain
+
+A robot starts with 100% battery.
+
+Input is the number of commands.
+
+For every command:
+
+Battery decreases by 4.
+Every 4th command consumes 2 extra battery.
+Whenever battery becomes divisible by 9, recharge by 5 immediately.
+Battery cannot exceed 100.
+
+Print the remaining battery.
+
+Example
+Input:
+18
+
+Output:
+37
+
+
+Q4 : Bank Investment
+
+Month1 = ₹100
+Month2 = ₹150
+
+Each month
+
+money =
+last month
++
+month before
+
+Every third month
+
+Tax = ₹20
+
+Output final money.
+
+
+Q5:  Monster Population 
+1 monster
+3 monsters
+
+Then
+
+new =
+previous
++
+previous_previous
+
+Every prime-numbered generation
+
+10% monsters die.
+
+
+
+Q6 : Galactic Fuel
+
+A futuristic spacecraft generates energy using a special sequence of fuel cells. The first three generations of fuel cells are already initialized inside the reactor.
+
+As the reactor evolves, each new generation of fuel cells is produced based on the previous generations. However, the reactor is unstable and follows certain hidden transformation rules during specific generations.
+
+Given an integer N, representing the generation number, determine the number of fuel cells present in the Nth generation.
+
+Input : A single integer N representing the required generation.
+
+Output : Print the number of fuel cells in the Nth generation.
+
+
+Input 
+1
+
+Output 
+1
+
+
+Input 
+4
+
+Output
+5
+
+Input 
+8
+
+Output 
+56
+
+

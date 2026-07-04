@@ -1,0 +1,113 @@
+Integer Input :    5432691
+Integer Output Sequence : 
+
+111438 
+315
+24
+2
+ 
+
+
+
+
+
+
+
+
+
+
+num = 87465
+str = str(num)❌
+str = num+"" ✅
+
+
+
+
+
+
+
+num = 87465
+int temp = num 
+int count = 0
+while( temp > 0 )
+{ 
+	count+=1;
+	temp /= 10;
+} 
+temp = num 
+int Arr = new int[ count ]; 
+for( i = count - 1 ; i >= 0 ; i-- )   // converting the integer input into array
+{ 
+	Arr[ i ] = temp % 10;
+	temp /= 10;
+}	
+
+for( i = 0 ; i < count-1 ; i++)
+{ 
+	int diff = Arr[ i ] - Arr[ i +1 ] 
+	if ( diff < 0) 
+		diff = diff * -1;
+	Arr[ i ] = diff;
+} 
+
+
+
+
+
+
+
+
+
+
+Integer Input : 56925
+Output : 		   
+243
+36
+54
+45
+BAD
+
+Integer Input : 23456
+Output : 		   
+120
+6
+GOOD
+
+Integer Input : 46987
+Output : 		   
+306
+54
+45
+BAD
+
+Open this link and join 
+
+tinyurl.com/G5TT5S
+
+You will find all solutions, questions being discussed in this repo
+
+github.com/Prudhvi-69/CGU-3rdYear-TT 
+
+You can access your group content inside the files with the name : "Day5S3", "Day4S3"
+S3 refers to session 3, meaning the group 5 
+
+If any more of your friends from Group 5 are missing in the class and absent today, you can let them know and from now on we are going to have the updates being shared in this group for easy information exchange.
+
+I guess you are missing to look at the clock for the remaining 2 more minutes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
