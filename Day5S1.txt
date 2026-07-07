@@ -81,7 +81,7 @@ return 0;
 
 Open this link and join
 
-tinyurl.com/G1TT5S
+tinyurl.com/G1TT5
 
 
 GitHub repo : 
