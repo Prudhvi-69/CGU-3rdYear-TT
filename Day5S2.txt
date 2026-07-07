@@ -113,7 +113,7 @@ str = num + ""
 
 
 
-tinyurl.com/G3TT5S 
+tinyurl.com/G3TT5
 
 Open this link and join.....
 
