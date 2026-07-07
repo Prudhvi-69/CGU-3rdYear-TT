@@ -1,0 +1,147 @@
+Size : 7
+Input :    [ 6 9999 15 7 3 -24 69 ]
+Output :  69
+
+Size : 5 
+Input : [ 1 10 39 46 -5 ]
+Output : 39 
+
+Size : 4 
+Input : [ 2 -6 89 42 ]
+Output : 2
+ 
+Size : 6
+Input : [ 45 78 69 10 12 100 ]
+Output : 12
+
+
+12
+
+while len(Arr) > 1 
+	a.append(a.pop(0))
+	a.pop(0)
+print a[0]
+
+
+
+
+
+
+
+if ( ! boys != false) 
+	stopTalk();
+else if( ! girls != false ) 
+	stopTalk();
+else 
+	youCanTalk();
+
+#Applicable for all Human Students 
+
+
+
+Size : 5 
+Input : [ 2 4 6 8 10 ] 
+Output : 12 
+
+
+Size : 6 
+Input : [ 4 8 6 9 5 7 ]
+Output : 9
+
+Size : 4 
+Input : [ 5 1 4 2 ]
+Output : 6
+
+
+
+
+Find out (lowest) how many steps are needed to convert all values to an equal 
+value.
+
+Size : 4 
+Input : [ 5 1 4 2 ]
+Output : 6
+
+
+sum = 0;
+for( int i = 0; i < n ; i++ )
+ 	sum += Arr[i];
+
+avg = sum / n
+
+differs = 0
+for( int i = 0; i < n ; i++ ) 
+	differs += abs(avg, arr[i] )
+
+print differs // total number of minimum steps 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+H_W / P_W / F_W / R_W / S_W / V_W :  
+
+Size : 9
+Array : [ 0 16 12 10 11 6 9 7 8 ] 
+Key : 4
+
+Output : 2112
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

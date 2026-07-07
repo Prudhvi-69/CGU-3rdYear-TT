@@ -1,0 +1,133 @@
+All Human Student Friends have been separated in this gruesome seggregation between the nations and choose one Heir to the Throne.
+
+We need that one True Heir
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+That's a relief 
+
+
+
+
+
+Input : " C4G5U4 i11s Gr10e69AT   "
+Output : 6
+
+Input : " CGU i3s g1re2at"
+Output : 3
+
+Input : " C1G2U3 is g4r5E6A7T  "
+Output : 7
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Input : String 
+
+Output : Yes or No 
+Checking if the string which we have taken is a valid password or not
+
+Rules : 
+1. It must contain an Uppercase
+2. It must contain a Lowerccase 
+3. It must a special character 
+4. It must a Numerical value 
+5. It should be of a minimum length of 9
+6. If the password is invalid, we should display why it is invalid and show invalid.
+7. If the password is invalid, it is should ask us for the re-entering the password, until you give the right password/valid password. 
+8. LImited number of times for the Wrong or Invalid password.
+
+
+
+
+
+
+
+"12.44.258.33" : Invalid 
+"10.10.10.100" : Valid 
+"-10.25.36.25" : Invalid 
+"100.25.69.58" : Valid 
+
+
+
+
+Input : [ 4 6 -9 -14 -8 5 20 0 ]
+
+Output : 756
+
+Output :  is not : Finding product of largest 3 values 
+Instead it is : Finding max product of any 3 values 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

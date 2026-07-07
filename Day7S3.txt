@@ -1,0 +1,180 @@
+Welcoming all the human people into the Classssssshhhhhhh
+
+Let us begin the ritual or we shall await the arrival of more human people into our dungeon?  
+
+So, we shall await the arrival of more human people.
+
+
+
+
+
+
+
+Everyone be ready with your grimoires.
+
+Be ready with to write the spells in your Grimoires.
+
+We shall be raised as the Knights of Royal Guard to reach the Wizard King's place one day in the Clover Kingdom.
+
+Tell the Humans who are arriving next to close the entrance of the Dungeon, else they shall be punished by the wrath of Warrior of Darkness.
+
+If you Humans fails to do the announcement, you shall be perished into the darkness by the Ruler of Underworld and 
+
+You Humans deserve an early exit out of our dungeon today because of the moralities you have shown on others.
+
+Good Human +1
+Bad Humans +4
+
+Goodness == ! (Bad Humans x4 ) 
+
+
+
+
+
+
+
+
+
+
+
+Size : 7
+Input :    [ 10 2 20 3 30 2 40 ]
+Output : [ 10 1 40 1 60 1 40 ]
+
+
+Size : 7
+Input :    [ 4 12 8 16 12 20 24 ]
+Output : [ 4 24 4 32 6 20 24 ]
+
+
+Size : 11
+Input :    [ 1 4 7 2 5 8 9 6 8 2 3 ]
+Output : [ 1 4 14 1 5 8 18 3 16 1 3 ]
+
+
+
+
+
+
+
+
+
+
+
+
+N = sc.nextInt();
+int Arr[] = new int[N];
+for( int i = 0 ; i < N ; i++) 
+	Arr[ i ] = sc.nextInt();
+
+for(int = 1 ; i < n-1 ; i++ )
+{ 
+	if( Arr[i] > Arr[i-1] && Arr[i] > Arr[i+1]) 
+		Arr[ i ] = Arr[ i ] * 2;
+
+	else if( Arr[i] < Arr[i-1] && Arr[i] < Arr[i+1] )
+		Arr[ i ] = Arr[ i ] / 2;
+} 
+
+// print the Array
+
+
+
+
+
+
+
+
+
+
+
+
+int N = 8
+int Arr[] = new int[N];
+
+for( int i = 0 ; i < N ; i++) 
+	Arr[ i ] = sc.nextInt();
+
+int sum = 0;
+for( int i = 0 ; i < N ; i++) 
+{
+	sum = sum + Arr[i];
+} 
+int avg = sum / N;
+int result = avg + N;
+print result;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Input :    [ 1 2 4 7 8 7 6]
+Output : 12
+
+Input :   [ 7 6 9 5 8 4 2 7 ] 
+Output : 14
+
+
+#Applicable for all Human Students
+if( !boys != false )
+	stay.Silent()
+else if( !girls != false)  
+	stay.Silent()
+else
+	youCan.talk()
+
+
+
+
+
+
+
+
+
+
+N = int(input())
+Arr = []
+for i in range(N): 
+	k = int(input())
+	Arr.append(k)
+
+for i in range(1,N-1):
+	if Arr[i] > Arr[i-1] and Arr[i] > Arr[i+1] :  
+		Arr[ i ] = Arr[ i ] * 2
+
+	elif Arr[i] < Arr[i-1] and Arr[i] < Arr[i+1] :
+		Arr[ i ] = Arr[ i ] // 2
+
+print(Arr) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
