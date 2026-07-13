@@ -109,3 +109,45 @@ https://github.com/Prudhvi-69/CGU-3rdYear-TT.git
 
 
 
+
+
+// Q1 : Zombie generations
+// Input : n -> Output : zombies after n generations
+
+// Python
+
+n = int(input())
+vals = [1, 2, 4, 7]
+if n <= 3:
+    print(vals[n])
+else:
+    i = 4
+    while i <= n:
+        v = 2 * vals[i-1] - vals[i-4]
+        if v % 9 == 0:
+            v -= 1
+        vals.append(v)
+        i += 1
+    print(vals[n])
+
+
+// Java
+
+import java.util.Scanner;
+public class Q1 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] vals = new int[n + 1];
+        vals[0] = 1;
+        if (n >= 1) vals[1] = 2;
+        if (n >= 2) vals[2] = 4;
+        if (n >= 3) vals[3] = 7;
+        for (int i = 4; i <= n; i++) {
+            int v = 2 * vals[i-1] - vals[i-4];
+            if (v % 9 == 0) v -= 1;
+            vals[i] = v;
+        }
+        System.out.println(vals[n]);
+    }
+}

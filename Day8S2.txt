@@ -1,0 +1,238 @@
+Input : String 
+Output : Either the Password is Strong/Valid or Not 
+
+
+Rules : 
+1. Atleast one digit 
+2. Atleast one special character in it 
+3. Atleast one uppercase 
+4. Atleast one lowercase 
+5. Minimum length of 9 
+6. If the password is weak, the code should show why it is weak.
+7. If the password is weak and you are showing the reason why it is weak, after that it should ask for the password again, until you give the right / valid one.
+8. If the passowrd is weak, it should be asking us for re-entering only limited number of times (5).
+
+
+
+
+
+
+
+
+
+
+
+"67.-27.0.220" : 			Invalid 
+"197.999.147.420" :   Invalid
+"148.3.199.169" :       Valid 
+"69.96.6.9" : 			 	Valid 
+ 
+Check if the input is Valid IP or not 
+
+"10.10.10.01" : Invalid 
+
+
+
+
+
+" Rishi Gupta "
+" Angel Rishi "
+
+Remanining : 10 
+
+Output : L
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Q1 : Password Validator (5 attempts)
+
+// Python
+
+attempts = 0
+while attempts < 5:
+    s = input()
+    uc = 0
+    lc = 0
+    dc = 0
+    sc2 = 0
+    if len(s) < 9:
+        print("Minimum length for password is 9. Invalid Password. Re-enter:")
+        attempts += 1
+        continue
+    i = 0
+    while i < len(s):
+        c = s[i]
+        if c >= 'A' and c <= 'Z':
+            uc = 1
+        elif c >= 'a' and c <= 'z':
+            lc = 1
+        elif c >= '0' and c <= '9':
+            dc = 1
+        else:
+            sc2 = 1
+        i += 1
+    if uc == 1 and lc == 1 and dc == 1 and sc2 == 1:
+        print("Valid Password")
+        break
+    else:
+        if uc == 0:
+            print("Uppercase is missing")
+        if lc == 0:
+            print("Lowercase is missing")
+        if dc == 0:
+            print("Digit is missing")
+        if sc2 == 0:
+            print("Special character is missing")
+        print("Invalid Password. Re-enter:")
+        attempts += 1
+if attempts == 5:
+    print("Wrong password limit exceeded. Try again after 24 hours.")
+
+
+// Java
+
+import java.util.Scanner;
+public class Q1 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int attempts = 0;
+        while (attempts < 5) {
+            String s = sc.nextLine();
+            int uc = 0, lc = 0, dc = 0, sp = 0;
+            if (s.length() < 9) {
+                System.out.println("Minimum length for password is 9. Invalid Password. Re-enter:");
+                attempts++;
+                continue;
+            }
+            for (int i = 0; i < s.length(); i++) {
+                char c = s.charAt(i);
+                if (c >= 'A' && c <= 'Z') uc = 1;
+                else if (c >= 'a' && c <= 'z') lc = 1;
+                else if (c >= '0' && c <= '9') dc = 1;
+                else sp = 1;
+            }
+            if (uc == 1 && lc == 1 && dc == 1 && sp == 1) {
+                System.out.println("Valid Password");
+                break;
+            } else {
+                if (uc == 0) System.out.println("Uppercase is missing");
+                if (lc == 0) System.out.println("Lowercase is missing");
+                if (dc == 0) System.out.println("Digit is missing");
+                if (sp == 0) System.out.println("Special character is missing");
+                System.out.println("Invalid Password. Re-enter:");
+                attempts++;
+            }
+        }
+        if (attempts == 5)
+            System.out.println("Wrong password limit exceeded. Try again after 24 hours.");
+    }
+}
+
+
+
+
+// Q2 : Valid IP address check
+// "67.-27.0.220" : Invalid, "148.3.199.169" : Valid
+// Rules: 4 parts split by '.', each part 0-255, no leading zeros, no negatives
+
+// Python
+
+s = input()
+parts = [""] * 4
+pcount = 0
+part = ""
+i = 0
+while i <= len(s):
+    if i == len(s) or s[i] == '.':
+        if pcount < 4:
+            parts[pcount] = part
+        pcount += 1
+        part = ""
+    else:
+        part += s[i]
+    i += 1
+
+valid = 1
+if pcount != 4:
+    valid = 0
+
+p = 0
+while p < 4 and valid == 1:
+    pt = parts[p]
+    if len(pt) == 0:
+        valid = 0
+    elif len(pt) > 1 and pt[0] == '0':
+        valid = 0  # leading zero
+    else:
+        # Check all digits and value 0-255
+        num = 0
+        j = 0
+        while j < len(pt):
+            if pt[j] < '0' or pt[j] > '9':
+                valid = 0
+                break
+            num = num * 10 + (ord(pt[j]) - ord('0'))
+            j += 1
+        if num < 0 or num > 255:
+            valid = 0
+    p += 1
+
+if valid == 1:
+    print("Valid")
+else:
+    print("Invalid")
+
+
+// Java
+
+import java.util.Scanner;
+public class Q2 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        String[] parts = new String[4];
+        int pcount = 0;
+        String part = "";
+        for (int i = 0; i <= s.length(); i++) {
+            if (i == s.length() || s.charAt(i) == '.') {
+                if (pcount < 4) parts[pcount] = part;
+                pcount++;
+                part = "";
+            } else {
+                part += s.charAt(i);
+            }
+        }
+        boolean valid = pcount == 4;
+        for (int p = 0; p < 4 && valid; p++) {
+            String pt = parts[p];
+            if (pt.length() == 0) { valid = false; break; }
+            if (pt.length() > 1 && pt.charAt(0) == '0') { valid = false; break; }
+            int num = 0;
+            for (int j = 0; j < pt.length(); j++) {
+                char c = pt.charAt(j);
+                if (c < '0' || c > '9') { valid = false; break; }
+                num = num * 10 + (c - '0');
+            }
+            if (num < 0 || num > 255) valid = false;
+        }
+        System.out.println(valid ? "Valid" : "Invalid");
+    }
+}

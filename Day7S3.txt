@@ -178,3 +178,96 @@ print(Arr)
 
 
 
+
+
+// Q1 : Double local max, halve local min (ignore first and last)
+// Input : [ 10 2 20 3 30 2 40 ] -> Output : [ 10 1 40 1 60 1 40 ]
+
+// Python
+
+n = int(input())
+arr = []
+i = 0
+while i < n:
+    arr.append(int(input()))
+    i += 1
+
+i = 1
+while i < n - 1:
+    if arr[i] > arr[i-1] and arr[i] > arr[i+1]:
+        arr[i] = arr[i] * 2
+    elif arr[i] < arr[i-1] and arr[i] < arr[i+1]:
+        arr[i] = arr[i] // 2
+    i += 1
+
+i = 0
+while i < n:
+    print(arr[i], end=" ")
+    i += 1
+print()
+
+
+// Java
+
+import java.util.Scanner;
+public class Q1 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) arr[i] = sc.nextInt();
+        for (int i = 1; i < n - 1; i++) {
+            if (arr[i] > arr[i-1] && arr[i] > arr[i+1]) arr[i] *= 2;
+            else if (arr[i] < arr[i-1] && arr[i] < arr[i+1]) arr[i] /= 2;
+        }
+        for (int i = 0; i < n; i++) System.out.print(arr[i] + " ");
+        System.out.println();
+    }
+}
+
+
+
+
+// Q2 : Longest increasing subarray length
+// Input : [ 1 2 4 7 8 7 6 ] -> Output : 5 (1,2,4,7,8)
+
+// Python
+
+n = int(input())
+arr = []
+i = 0
+while i < n:
+    arr.append(int(input()))
+    i += 1
+
+maxLen = 1
+curLen = 1
+i = 1
+while i < n:
+    if arr[i] > arr[i-1]:
+        curLen += 1
+        if curLen > maxLen:
+            maxLen = curLen
+    else:
+        curLen = 1
+    i += 1
+print(maxLen)
+
+
+// Java
+
+import java.util.Scanner;
+public class Q2 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) arr[i] = sc.nextInt();
+        int maxLen = 1, curLen = 1;
+        for (int i = 1; i < n; i++) {
+            if (arr[i] > arr[i-1]) { curLen++; if (curLen > maxLen) maxLen = curLen; }
+            else curLen = 1;
+        }
+        System.out.println(maxLen);
+    }
+}

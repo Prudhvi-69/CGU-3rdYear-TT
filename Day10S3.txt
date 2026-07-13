@@ -1,0 +1,297 @@
+Q1 :
+
+Input : 18
+Output : R
+
+Input : 26
+Output : Z
+
+Input : 42
+Output : AP
+
+Input : 50
+Output : AX
+
+Input : 703
+Output : AAA
+
+Input : 420
+Output : Find Out.....?
+
+Input : 100
+Output : CV
+
+
+// Note: Standard Excel column mapping (A=1, B=2 ... Z=26, AA=27 ...)
+
+// Python
+
+n = int(input())
+
+if n <= 0:
+    print("Invalid")
+else:
+    result = ""
+    while n > 0:
+        n -= 1
+        # Build column name from right to left
+        result = chr(n % 26 + ord('A')) + result
+        n //= 26
+    print(result)
+
+
+// Java
+
+import java.util.Scanner;
+public class Q1 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        if (n <= 0) {
+            System.out.println("Invalid");
+        } else {
+            String result = "";
+            while (n > 0) {
+                n--;
+                result = (char)(n % 26 + 'A') + result;
+                n /= 26;
+            }
+            System.out.println(result);
+        }
+    }
+}
+
+
+
+
+Q2 :
+
+Input1 : "Amar Hen Tail Hinata Chandan Meow Sai Raj"
+Input2 : 2
+
+If words with even length are present, they are going to move one position to right
+If words with odd length are present, they are going to move one position to left
+If the moving words are reaching the walls (left end and right end), they should stay in that place.
+
+It will be repeated input2 number of cycles.
+
+Output :
+1st cycle : "Hen Amar Tail Chandan Sai Hinata Raj Meow"
+2nd cycle : "Hen Amar Chandan Sai Raj Tail Hinata Meow"
+
+
+// Python
+
+s = input()
+t = int(input())
+
+# Collect words manually
+words = [""] * 100
+n = 0
+word = ""
+i = 0
+while i <= len(s):
+    if i == len(s) or s[i] == ' ':
+        if len(word) > 0:
+            words[n] = word
+            n += 1
+            word = ""
+    else:
+        word += s[i]
+    i += 1
+
+cycle = 0
+while cycle < t:
+    moved = [0] * n
+    new_words = [""] * n
+    i = 0
+    while i < n:
+        new_words[i] = words[i]
+        i += 1
+
+    # Odd length words move left
+    i = 0
+    while i < n:
+        if len(words[i]) % 2 == 1 and moved[i] == 0 and i > 0 and moved[i-1] == 0:
+            new_words[i-1] = words[i]
+            new_words[i] = words[i-1]
+            moved[i] = 1
+            moved[i-1] = 1
+        i += 1
+
+    i = 0
+    while i < n:
+        words[i] = new_words[i]
+        moved[i] = 0
+        i += 1
+
+    # Even length words move right
+    i = 0
+    while i < n:
+        new_words[i] = words[i]
+        i += 1
+
+    i = n - 1
+    while i >= 0:
+        if len(words[i]) % 2 == 0 and moved[i] == 0 and i < n-1 and moved[i+1] == 0:
+            new_words[i+1] = words[i]
+            new_words[i] = words[i+1]
+            moved[i] = 1
+            moved[i+1] = 1
+        i -= 1
+
+    i = 0
+    while i < n:
+        words[i] = new_words[i]
+        i += 1
+
+    result = ""
+    i = 0
+    while i < n:
+        result += words[i]
+        if i != n - 1:
+            result += " "
+        i += 1
+    print(result)
+    cycle += 1
+
+
+// Java
+
+import java.util.Scanner;
+public class Q2 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        int t = sc.nextInt();
+
+        String[] words = new String[100];
+        int n = 0;
+        String word = "";
+        for (int i = 0; i <= s.length(); i++) {
+            if (i == s.length() || s.charAt(i) == ' ') {
+                if (word.length() > 0) { words[n++] = word; word = ""; }
+            } else {
+                word += s.charAt(i);
+            }
+        }
+
+        for (int cycle = 0; cycle < t; cycle++) {
+            int[] moved = new int[n];
+            String[] newWords = new String[n];
+            for (int i = 0; i < n; i++) newWords[i] = words[i];
+
+            // Odd length words move left
+            for (int i = 0; i < n; i++) {
+                if (words[i].length() % 2 == 1 && moved[i] == 0 && i > 0 && moved[i-1] == 0) {
+                    newWords[i-1] = words[i];
+                    newWords[i] = words[i-1];
+                    moved[i] = 1;
+                    moved[i-1] = 1;
+                }
+            }
+            for (int i = 0; i < n; i++) { words[i] = newWords[i]; moved[i] = 0; }
+
+            // Even length words move right
+            for (int i = 0; i < n; i++) newWords[i] = words[i];
+            for (int i = n-1; i >= 0; i--) {
+                if (words[i].length() % 2 == 0 && moved[i] == 0 && i < n-1 && moved[i+1] == 0) {
+                    newWords[i+1] = words[i];
+                    newWords[i] = words[i+1];
+                    moved[i] = 1;
+                    moved[i+1] = 1;
+                }
+            }
+            for (int i = 0; i < n; i++) words[i] = newWords[i];
+
+            String result = "";
+            for (int i = 0; i < n; i++) {
+                if (i > 0) result += " ";
+                result += words[i];
+            }
+            System.out.println(result);
+        }
+    }
+}
+
+
+
+
+Q3 :
+
+Input : AAA
+Output : 703
+
+Input : PD
+Output : 420
+
+Input : AX
+Output : 50
+
+Input : CVR
+Output : ?
+
+Input : CGU
+Output : ?
+
+
+// Python
+
+s = input()
+
+# Validate all characters are alphabets manually
+valid = 1
+i = 0
+while i < len(s):
+    c = s[i]
+    if not (('A' <= c <= 'Z') or ('a' <= c <= 'z')):
+        valid = 0
+    i += 1
+
+if valid == 0:
+    print("Invalid")
+else:
+    result = 0
+    i = 0
+    while i < len(s):
+        c = s[i]
+        # Convert to uppercase manually
+        if 'a' <= c <= 'z':
+            c = chr(ord(c) - 32)
+        result = result * 26 + (ord(c) - ord('A') + 1)
+        i += 1
+    print(result)
+
+
+// Java
+
+import java.util.Scanner;
+public class Q3 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+
+        // Validate all characters are alphabets
+        boolean valid = true;
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (!((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))) {
+                valid = false;
+                break;
+            }
+        }
+
+        if (!valid) {
+            System.out.println("Invalid");
+        } else {
+            int result = 0;
+            for (int i = 0; i < s.length(); i++) {
+                char c = s.charAt(i);
+                // Convert to uppercase manually
+                if (c >= 'a') c = (char)(c - 32);
+                result = result * 26 + (c - 'A' + 1);
+            }
+            System.out.println(result);
+        }
+    }
+}

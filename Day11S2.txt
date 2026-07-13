@@ -1,0 +1,324 @@
+Q1 : Reverse the words in the String
+
+Input :    "Tell me some English words Humans"
+Output : "Humans words English some me Tell"
+
+
+// Python
+
+s = input()
+
+# Collect words manually
+words = [""] * 100
+wcount = 0
+word = ""
+i = 0
+while i <= len(s):
+    if i == len(s) or s[i] == ' ':
+        if len(word) > 0:
+            words[wcount] = word
+            wcount += 1
+            word = ""
+    else:
+        word += s[i]
+    i += 1
+
+# Reverse word order using two pointers
+left = 0
+right = wcount - 1
+while left < right:
+    temp = words[left]
+    words[left] = words[right]
+    words[right] = temp
+    left += 1
+    right -= 1
+
+result = ""
+i = 0
+while i < wcount:
+    result += words[i]
+    if i != wcount - 1:
+        result += " "
+    i += 1
+
+print(result)
+
+
+// Java
+
+import java.util.Scanner;
+public class Q1 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        String[] words = new String[100];
+        int count = 0;
+        String word = "";
+        for (int i = 0; i <= s.length(); i++) {
+            if (i == s.length() || s.charAt(i) == ' ') {
+                if (word.length() > 0) {
+                    words[count++] = word;
+                    word = "";
+                }
+            } else {
+                word += s.charAt(i);
+            }
+        }
+        // Reverse word order using two pointers
+        int left = 0, right = count - 1;
+        while (left < right) {
+            String temp = words[left];
+            words[left] = words[right];
+            words[right] = temp;
+            left++;
+            right--;
+        }
+        String result = "";
+        for (int i = 0; i < count; i++) {
+            if (i > 0) result += " ";
+            result += words[i];
+        }
+        System.out.println(result);
+    }
+}
+
+
+
+
+Q2 : Reverse the characters in each word keeping the order of the words
+
+Input :    "Complan Urmbella Citrigen Odd Vans KIIT Square"
+Output : "nalpmoC allebmrU negirtiC ddO snaV TIIK erauqS"
+
+
+// Python
+
+s = input()
+
+# Collect words manually
+words = [""] * 100
+wcount = 0
+word = ""
+i = 0
+while i <= len(s):
+    if i == len(s) or s[i] == ' ':
+        if len(word) > 0:
+            words[wcount] = word
+            wcount += 1
+            word = ""
+    else:
+        word += s[i]
+    i += 1
+
+result = ""
+i = 0
+while i < wcount:
+    # Reverse word character by character
+    rev = ""
+    j = len(words[i]) - 1
+    while j >= 0:
+        rev += words[i][j]
+        j -= 1
+    result += rev
+    if i != wcount - 1:
+        result += " "
+    i += 1
+
+print(result)
+
+
+// Java
+
+import java.util.Scanner;
+public class Q2 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        String result = "";
+        String word = "";
+        for (int i = 0; i <= s.length(); i++) {
+            if (i == s.length() || s.charAt(i) == ' ') {
+                if (word.length() > 0) {
+                    // Reverse the word
+                    String rev = "";
+                    for (int j = word.length()-1; j >= 0; j--)
+                        rev += word.charAt(j);
+                    if (result.length() > 0) result += " ";
+                    result += rev;
+                    word = "";
+                }
+            } else {
+                word += s.charAt(i);
+            }
+        }
+        System.out.println(result);
+    }
+}
+
+
+
+
+Q3 :
+
+T = 4
+
+Input1 :  "10-07-2026"
+N :  30
+
+Input1 :  "01-01-0000"
+Input2 : 2
+
+Input1 : 31-02-2026
+Input2 : 2
+
+Input1 : 18-15-2026
+Input2 : 4
+
+Output : "09-08-2026"
+Output : "03-01-0000"
+Output : Invalid Date range for this month : February
+Output : Invalid Month range in the year : 2026
+
+
+// Python
+
+date = input()
+n = int(input())
+
+# Parse day, month, year by scanning for '-'
+part = ""
+count = 0
+day = 0
+month = 0
+year = 0
+i = 0
+while i <= len(date):
+    if i == len(date) or date[i] == '-':
+        num = 0
+        j = 0
+        while j < len(part):
+            num = num * 10 + (ord(part[j]) - ord('0'))
+            j += 1
+        if count == 0:
+            day = num
+        elif count == 1:
+            month = num
+        else:
+            year = num
+        count += 1
+        part = ""
+    else:
+        part += date[i]
+    i += 1
+
+days = [31,28,31,30,31,30,31,31,30,31,30,31]
+
+# Set leap year
+if (year % 400 == 0) or (year % 4 == 0 and year % 100 != 0):
+    days[1] = 29
+
+months = ["January","February","March","April","May","June","July","August","September","October","November","December"]
+
+if month < 1 or month > 12:
+    print("Invalid Month range in the year :", year)
+elif day < 1 or day > days[month - 1]:
+    print("Invalid Date range for this month :", months[month - 1])
+else:
+    while n > 0:
+        day += 1
+        if day > days[month - 1]:
+            day = 1
+            month += 1
+            if month > 12:
+                month = 1
+                year += 1
+                days[1] = 28
+                if (year % 400 == 0) or (year % 4 == 0 and year % 100 != 0):
+                    days[1] = 29
+        n -= 1
+
+    d = str(day)
+    m = str(month)
+    y = str(year)
+
+    if day < 10:
+        d = "0" + d
+    if month < 10:
+        m = "0" + m
+    while len(y) < 4:
+        y = "0" + y
+
+    print(d + "-" + m + "-" + y)
+
+
+// Java
+
+import java.util.Scanner;
+public class Q3 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String date = sc.nextLine();
+        int n = sc.nextInt();
+
+        // Parse day, month, year manually
+        int day = 0, month = 0, year = 0, count = 0, num = 0;
+        for (int i = 0; i <= date.length(); i++) {
+            if (i == date.length() || date.charAt(i) == '-') {
+                if (count == 0) day = num;
+                else if (count == 1) month = num;
+                else year = num;
+                count++;
+                num = 0;
+            } else {
+                num = num * 10 + (date.charAt(i) - '0');
+            }
+        }
+
+        int[] days = {31,28,31,30,31,30,31,31,30,31,30,31};
+        String[] months = {"January","February","March","April","May","June","July","August","September","October","November","December"};
+
+        // Set leap year
+        if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0))
+            days[1] = 29;
+
+        if (month < 1 || month > 12) {
+            System.out.println("Invalid Month range in the year : " + year);
+        } else if (day < 1 || day > days[month-1]) {
+            System.out.println("Invalid Date range for this month : " + months[month-1]);
+        } else {
+            while (n > 0) {
+                day++;
+                if (day > days[month-1]) {
+                    day = 1;
+                    month++;
+                    if (month > 12) {
+                        month = 1;
+                        year++;
+                        days[1] = 28;
+                        if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0))
+                            days[1] = 29;
+                    }
+                }
+                n--;
+            }
+            String d = day < 10 ? "0" + day : "" + day;
+            String m = month < 10 ? "0" + month : "" + month;
+            String y = "" + year;
+            while (y.length() < 4) y = "0" + y;
+            System.out.println(d + "-" + m + "-" + y);
+        }
+    }
+}
+
+
+
+
+For CBT Tomorrow
+
+You are going to have 120minutes of time.
+To answer : 20 MCQs
+and
+Solve : 3 Coding Questions
+
+Nothing out of your syllabus
+: (Arrays, Strings, Searching, Sorting)

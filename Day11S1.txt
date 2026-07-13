@@ -1,0 +1,538 @@
+Q1 :
+
+Input1 : "10-07-2026"
+Input2 : 3
+Output : "13-07-2026"
+
+Should be checked when taken input
+
+Checking if the date goes beyond expected days in a month
+Output format for single year values if taken as : 01-01-0000 but not 01-01-0
+Invalid dates (days going beyond 31 and months going beyond 12 and year going below 0)
+
+01- 12 - 400 BC
+40 days to the date above
+10 - 01 - 399 BC
+
+
+// Python
+
+date = input()
+n = int(input())
+
+# Check for BC suffix manually
+bc = 0
+if len(date) >= 2 and date[len(date)-2] == 'B' and date[len(date)-1] == 'C':
+    bc = 1
+    # Remove " BC" from end (3 chars)
+    date = date[:len(date)-3]
+
+# Parse day, month, year by scanning for '-'
+part = ""
+count = 0
+day = 0
+month = 0
+year = 0
+i = 0
+while i <= len(date):
+    if i == len(date) or date[i] == '-':
+        # Convert part string to int manually
+        num = 0
+        j = 0
+        while j < len(part):
+            if part[j] != ' ':
+                num = num * 10 + (ord(part[j]) - ord('0'))
+            j += 1
+        if count == 0:
+            day = num
+        elif count == 1:
+            month = num
+        else:
+            year = num
+        count += 1
+        part = ""
+    else:
+        part += date[i]
+    i += 1
+
+# If BC, treat year as negative internally
+if bc:
+    year = -year
+
+days = [31,28,31,30,31,30,31,31,30,31,30,31]
+months = ["January","February","March","April","May","June","July","August","September","October","November","December"]
+
+# Set leap year
+if year >= 0 and (year % 400 == 0 or (year % 4 == 0 and year % 100 != 0)):
+    days[1] = 29
+else:
+    days[1] = 28
+
+if month < 1 or month > 12:
+    # Print abs(year) manually
+    y = year
+    if y < 0:
+        y = -y
+    print("Invalid Month range in the year :", y, "BC" if bc else "")
+elif day < 1 or day > days[month - 1]:
+    print("Invalid Date range for this month :", months[month - 1])
+else:
+    while n > 0:
+        day += 1
+        if day > days[month - 1]:
+            day = 1
+            month += 1
+            if month > 12:
+                month = 1
+                year += 1
+                # Skip year 0 for BC/AD transition
+                if year == 0:
+                    year = 1
+                # Recalculate leap year
+                if year >= 0 and (year % 400 == 0 or (year % 4 == 0 and year % 100 != 0)):
+                    days[1] = 29
+                else:
+                    days[1] = 28
+        n -= 1
+
+    # Format day
+    d = ""
+    if day < 10:
+        d = "0" + str(day)
+    else:
+        d = str(day)
+
+    # Format month
+    m = ""
+    if month < 10:
+        m = "0" + str(month)
+    else:
+        m = str(month)
+
+    # Format year (abs)
+    y = year
+    if y < 0:
+        y = -y
+    ystr = str(y)
+    while len(ystr) < 4:
+        ystr = "0" + ystr
+
+    if year < 0:
+        print(d + "-" + m + "-" + ystr + " BC")
+    else:
+        print(d + "-" + m + "-" + ystr)
+
+
+// Java
+
+import java.util.Scanner;
+public class Q1 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String date = sc.nextLine();
+        int n = sc.nextInt();
+
+        // Check for BC suffix
+        boolean bc = false;
+        if (date.length() >= 2 && date.charAt(date.length()-2) == 'B' && date.charAt(date.length()-1) == 'C') {
+            bc = true;
+            // Remove last 3 chars " BC"
+            String tmp = "";
+            for (int i = 0; i < date.length()-3; i++)
+                tmp += date.charAt(i);
+            date = tmp;
+        }
+
+        // Parse day, month, year manually
+        int day = 0, month = 0, year = 0, count = 0, num = 0;
+        for (int i = 0; i <= date.length(); i++) {
+            if (i == date.length() || date.charAt(i) == '-') {
+                if (count == 0) day = num;
+                else if (count == 1) month = num;
+                else year = num;
+                count++;
+                num = 0;
+            } else if (date.charAt(i) != ' ') {
+                num = num * 10 + (date.charAt(i) - '0');
+            }
+        }
+
+        if (bc) year = -year;
+
+        int[] days = {31,28,31,30,31,30,31,31,30,31,30,31};
+        String[] months = {"January","February","March","April","May","June","July","August","September","October","November","December"};
+
+        // Set leap year
+        if (year >= 0 && (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)))
+            days[1] = 29;
+        else
+            days[1] = 28;
+
+        int absYear = year < 0 ? -year : year;
+
+        if (month < 1 || month > 12) {
+            System.out.println("Invalid Month range in the year : " + absYear + (bc ? " BC" : ""));
+        } else if (day < 1 || day > days[month-1]) {
+            System.out.println("Invalid Date range for this month : " + months[month-1]);
+        } else {
+            while (n > 0) {
+                day++;
+                if (day > days[month-1]) {
+                    day = 1;
+                    month++;
+                    if (month > 12) {
+                        month = 1;
+                        year++;
+                        if (year == 0) year = 1; // Skip year 0
+                        if (year >= 0 && (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)))
+                            days[1] = 29;
+                        else
+                            days[1] = 28;
+                    }
+                }
+                n--;
+            }
+
+            // Format day
+            String d = day < 10 ? "0" + day : "" + day;
+            // Format month
+            String m = month < 10 ? "0" + month : "" + month;
+            // Format year
+            int ay = year < 0 ? -year : year;
+            String ystr = "" + ay;
+            while (ystr.length() < 4) ystr = "0" + ystr;
+
+            if (year < 0)
+                System.out.println(d + "-" + m + "-" + ystr + " BC");
+            else
+                System.out.println(d + "-" + m + "-" + ystr);
+        }
+    }
+}
+
+
+
+
+Q2 :
+
+Input :    "Humans English Damb Batman Gotham Naruto Hinata Tsunade Jiraiya Itachi Watashi No Soul Society"
+Output : "snamuH hsilgnE bmaD namtaB mahtoG oturaN ataniH edanusT ayiariJ ihcatI ihsataW oN luoS yteicoS"
+
+
+// Python
+
+s = input()
+
+# Collect words manually
+words = [""] * 100
+wcount = 0
+word = ""
+i = 0
+while i <= len(s):
+    if i == len(s) or s[i] == ' ':
+        if len(word) > 0:
+            words[wcount] = word
+            wcount += 1
+            word = ""
+    else:
+        word += s[i]
+    i += 1
+
+result = ""
+i = 0
+while i < wcount:
+    # Reverse word character by character
+    rev = ""
+    j = len(words[i]) - 1
+    while j >= 0:
+        rev += words[i][j]
+        j -= 1
+    result += rev
+    if i != wcount - 1:
+        result += " "
+    i += 1
+
+print(result)
+
+
+// Java
+
+import java.util.Scanner;
+public class Q2 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        String result = "";
+        String word = "";
+        for (int i = 0; i <= s.length(); i++) {
+            if (i == s.length() || s.charAt(i) == ' ') {
+                if (word.length() > 0) {
+                    // Reverse the word
+                    String rev = "";
+                    for (int j = word.length()-1; j >= 0; j--)
+                        rev += word.charAt(j);
+                    if (result.length() > 0) result += " ";
+                    result += rev;
+                    word = "";
+                }
+            } else {
+                word += s.charAt(i);
+            }
+        }
+        System.out.println(result);
+    }
+}
+
+
+
+
+Q3 :
+
+Input :     "Watashi no Soul Society"
+Output :  "Society Soul no Watashi"
+
+
+// Python
+
+s = input()
+
+# Collect words manually
+words = [""] * 100
+wcount = 0
+word = ""
+i = 0
+while i <= len(s):
+    if i == len(s) or s[i] == ' ':
+        if len(word) > 0:
+            words[wcount] = word
+            wcount += 1
+            word = ""
+    else:
+        word += s[i]
+    i += 1
+
+# Reverse word order using two pointers
+left = 0
+right = wcount - 1
+while left < right:
+    temp = words[left]
+    words[left] = words[right]
+    words[right] = temp
+    left += 1
+    right -= 1
+
+result = ""
+i = 0
+while i < wcount:
+    result += words[i]
+    if i != wcount - 1:
+        result += " "
+    i += 1
+
+print(result)
+
+
+// Java
+
+import java.util.Scanner;
+public class Q3 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        String[] words = new String[100];
+        int count = 0;
+        String word = "";
+        for (int i = 0; i <= s.length(); i++) {
+            if (i == s.length() || s.charAt(i) == ' ') {
+                if (word.length() > 0) {
+                    words[count++] = word;
+                    word = "";
+                }
+            } else {
+                word += s.charAt(i);
+            }
+        }
+        // Reverse word order using two pointers
+        int left = 0, right = count - 1;
+        while (left < right) {
+            String temp = words[left];
+            words[left] = words[right];
+            words[right] = temp;
+            left++;
+            right--;
+        }
+        String result = "";
+        for (int i = 0; i < count; i++) {
+            if (i > 0) result += " ";
+            result += words[i];
+        }
+        System.out.println(result);
+    }
+}
+
+
+
+
+Q4 :
+
+Input : 25
+Output : Twenty Five
+!Output : Two Five
+
+
+// Python
+
+ones = ["","One","Two","Three","Four","Five","Six","Seven","Eight","Nine",
+        "Ten","Eleven","Twelve","Thirteen","Fourteen","Fifteen","Sixteen",
+        "Seventeen","Eighteen","Nineteen"]
+tens = ["","","Twenty","Thirty","Forty","Fifty","Sixty","Seventy","Eighty","Ninety"]
+
+n = int(input())
+
+if n == 0:
+    print("Zero")
+else:
+    result = ""
+
+    # Crores
+    if n >= 10000000:
+        cr = n // 10000000
+        n = n % 10000000
+        # cr is at most 99 for typical inputs
+        if cr >= 20:
+            result += tens[cr // 10]
+            if cr % 10 != 0:
+                result += " " + ones[cr % 10]
+        else:
+            result += ones[cr]
+        result += " Crore "
+
+    # Lakhs
+    if n >= 100000:
+        lk = n // 100000
+        n = n % 100000
+        if lk >= 100:
+            result += ones[lk // 100] + " Hundred "
+            lk = lk % 100
+        if lk >= 20:
+            result += tens[lk // 10]
+            if lk % 10 != 0:
+                result += " " + ones[lk % 10]
+        elif lk > 0:
+            result += ones[lk]
+        result += " Lakh "
+
+    # Thousands
+    if n >= 1000:
+        th = n // 1000
+        n = n % 1000
+        if th >= 100:
+            result += ones[th // 100] + " Hundred "
+            th = th % 100
+        if th >= 20:
+            result += tens[th // 10]
+            if th % 10 != 0:
+                result += " " + ones[th % 10]
+        elif th > 0:
+            result += ones[th]
+        result += " Thousand "
+
+    # Hundreds
+    if n >= 100:
+        result += ones[n // 100] + " Hundred "
+        n = n % 100
+
+    # Tens and ones
+    if n >= 20:
+        result += tens[n // 10]
+        if n % 10 != 0:
+            result += " " + ones[n % 10]
+    elif n > 0:
+        result += ones[n]
+
+    # Trim trailing/leading spaces manually
+    r = result
+    start = 0
+    end = len(r) - 1
+    while start <= end and r[start] == ' ':
+        start += 1
+    while end >= start and r[end] == ' ':
+        end -= 1
+    final = ""
+    i = start
+    while i <= end:
+        final += r[i]
+        i += 1
+    print(final)
+
+
+// Java
+
+import java.util.Scanner;
+public class Q4 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+
+        String[] ones = {"","One","Two","Three","Four","Five","Six","Seven","Eight","Nine",
+            "Ten","Eleven","Twelve","Thirteen","Fourteen","Fifteen","Sixteen",
+            "Seventeen","Eighteen","Nineteen"};
+        String[] tens = {"","","Twenty","Thirty","Forty","Fifty","Sixty","Seventy","Eighty","Ninety"};
+
+        if (n == 0) {
+            System.out.println("Zero");
+        } else {
+            String result = "";
+
+            // Crores
+            if (n >= 10000000) {
+                int cr = n / 10000000;
+                n = n % 10000000;
+                if (cr >= 20) {
+                    result += tens[cr/10];
+                    if (cr%10 != 0) result += " " + ones[cr%10];
+                } else {
+                    result += ones[cr];
+                }
+                result += " Crore ";
+            }
+
+            // Lakhs
+            if (n >= 100000) {
+                int lk = n / 100000;
+                n = n % 100000;
+                if (lk >= 100) { result += ones[lk/100] + " Hundred "; lk = lk % 100; }
+                if (lk >= 20) { result += tens[lk/10]; if (lk%10 != 0) result += " " + ones[lk%10]; }
+                else if (lk > 0) { result += ones[lk]; }
+                result += " Lakh ";
+            }
+
+            // Thousands
+            if (n >= 1000) {
+                int th = n / 1000;
+                n = n % 1000;
+                if (th >= 100) { result += ones[th/100] + " Hundred "; th = th % 100; }
+                if (th >= 20) { result += tens[th/10]; if (th%10 != 0) result += " " + ones[th%10]; }
+                else if (th > 0) { result += ones[th]; }
+                result += " Thousand ";
+            }
+
+            // Hundreds
+            if (n >= 100) { result += ones[n/100] + " Hundred "; n = n % 100; }
+
+            // Tens and ones
+            if (n >= 20) { result += tens[n/10]; if (n%10 != 0) result += " " + ones[n%10]; }
+            else if (n > 0) { result += ones[n]; }
+
+            // Trim spaces manually
+            int start = 0, end = result.length() - 1;
+            while (start <= end && result.charAt(start) == ' ') start++;
+            while (end >= start && result.charAt(end) == ' ') end--;
+            String final2 = "";
+            for (int i = start; i <= end; i++)
+                final2 += result.charAt(i);
+
+            System.out.println(final2);
+        }
+    }
+}

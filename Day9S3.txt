@@ -1,0 +1,223 @@
+Input : " Meow Appy BarthDey Ayam Slippi Yu Ken Du Yit "
+Output1 : Yu
+Output2 : Barthday 
+
+
+Find the smallest and longest words in the string
+
+
+Input :    "get Out times up More English Saitama Humans"
+Output : "up get Out More times Humans English Saitama"
+
+=> You need to sort the words in the string by length of the each word in ascending order. 
+=> If there are two words with same length you are going to display those like how they are in the input
+
+
+Input :    "Meow Squid Game happydent Aura Ginger Hinata Sugar Mojito Dagmadola Bombarbola"
+Output : "Aura Game Meow Squid Sugar Ginger Hinata Mojito Dagmadola happydent Bombarbola"
+
+
+=> You need to sort the words in the string by length of the eacj word in ascending order.
+=> If there are two words with same length, you are going to sort them in alphabetical order.
+
+
+
+Input :    "Tell me some English Words Human People"
+Output : 7
+
+count = 0
+
+for(int i = 0 ; i < n ; i++ )
+	if( str[i] ! = ' ' && str[i+1] == ' ') 
+		count += 1
+ 
+if( str[n-1] != ' ')
+	count += 1
+print count 
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+// Q1 : Find shortest and longest word
+// Input : " Meow Appy BarthDey Ayam Slippi Yu Ken Du Yit "
+// Output1 : Yu (shortest), Output2 : BarthDey (longest)
+
+// Python
+
+s = input()
+words = [""] * 100
+n = 0
+word = ""
+i = 0
+while i <= len(s):
+    if i == len(s) or s[i] == ' ':
+        if len(word) > 0:
+            words[n] = word
+            n += 1
+            word = ""
+    else:
+        word += s[i]
+    i += 1
+
+shortest = words[0]
+longest = words[0]
+i = 1
+while i < n:
+    if len(words[i]) < len(shortest):
+        shortest = words[i]
+    if len(words[i]) > len(longest):
+        longest = words[i]
+    i += 1
+print(shortest)
+print(longest)
+
+
+// Java
+
+import java.util.Scanner;
+public class Q1 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        String[] words = new String[100];
+        int n = 0;
+        String word = "";
+        for (int i = 0; i <= s.length(); i++) {
+            if (i == s.length() || s.charAt(i) == ' ') {
+                if (word.length() > 0) { words[n++] = word; word = ""; }
+            } else {
+                word += s.charAt(i);
+            }
+        }
+        String shortest = words[0], longest = words[0];
+        for (int i = 1; i < n; i++) {
+            if (words[i].length() < shortest.length()) shortest = words[i];
+            if (words[i].length() > longest.length()) longest = words[i];
+        }
+        System.out.println(shortest);
+        System.out.println(longest);
+    }
+}
+
+
+
+
+// Q2 : Sort words by length (stable for same length)
+// Input : "get Out times up More English Saitama Humans"
+// Output : "up get Out More times Humans English Saitama"
+
+// Python
+
+s = input()
+words = [""] * 100
+n = 0
+word = ""
+i = 0
+while i <= len(s):
+    if i == len(s) or s[i] == ' ':
+        if len(word) > 0:
+            words[n] = word
+            n += 1
+            word = ""
+    else:
+        word += s[i]
+    i += 1
+
+# Stable bubble sort by length
+i = 0
+while i < n - 1:
+    j = 0
+    while j < n - i - 1:
+        if len(words[j]) > len(words[j+1]):
+            temp = words[j]
+            words[j] = words[j+1]
+            words[j+1] = temp
+        j += 1
+    i += 1
+
+result = ""
+i = 0
+while i < n:
+    result += words[i]
+    if i != n - 1:
+        result += " "
+    i += 1
+print(result)
+
+
+// Java
+
+import java.util.Scanner;
+public class Q2 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        String[] words = new String[100];
+        int n = 0;
+        String word = "";
+        for (int i = 0; i <= s.length(); i++) {
+            if (i == s.length() || s.charAt(i) == ' ') {
+                if (word.length() > 0) { words[n++] = word; word = ""; }
+            } else {
+                word += s.charAt(i);
+            }
+        }
+        for (int i = 0; i < n - 1; i++)
+            for (int j = 0; j < n - i - 1; j++)
+                if (words[j].length() > words[j+1].length()) {
+                    String t = words[j]; words[j] = words[j+1]; words[j+1] = t;
+                }
+        String result = "";
+        for (int i = 0; i < n; i++) {
+            if (i > 0) result += " ";
+            result += words[i];
+        }
+        System.out.println(result);
+    }
+}
+
+
+
+
+// Q3 : Count words in string
+// Input : "Tell me some English Words Human People" -> Output : 7
+
+// Python
+
+s = input()
+count = 0
+i = 0
+while i < len(s):
+    if s[i] != ' ' and (i == 0 or s[i-1] == ' '):
+        count += 1
+    i += 1
+print(count)
+
+
+// Java
+
+import java.util.Scanner;
+public class Q3 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        int count = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) != ' ' && (i == 0 || s.charAt(i-1) == ' '))
+                count++;
+        }
+        System.out.println(count);
+    }
+}

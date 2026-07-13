@@ -1,0 +1,218 @@
+Q1 :
+
+Input : 19
+Output : S
+
+Input : 26
+Output : Z
+
+Input : 35
+Output : AI
+
+Input : 69
+Output : BQ
+
+Input : 703
+Output : AAA
+
+Input : 747
+Output : Find it Out
+
+
+// Note: Excel-style column naming but with offset 18 (A=19, B=20 ... Z=44, AA=45 ...)
+// Subtract 18 before converting to Excel column format
+
+// Python
+
+n = int(input())
+
+if n < 19:
+    print("Find it Out")
+else:
+    n -= 18  # Shift so that 19 maps to A (1)
+    result = ""
+    while n > 0:
+        n -= 1
+        # Get character for current position
+        result = chr(n % 26 + ord('A')) + result
+        n //= 26
+    print(result)
+
+
+// Java
+
+import java.util.Scanner;
+public class Q1 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        if (n < 19) {
+            System.out.println("Find it Out");
+        } else {
+            n -= 18; // Shift so 19 -> A
+            String result = "";
+            while (n > 0) {
+                n--;
+                result = (char)(n % 26 + 'A') + result;
+                n /= 26;
+            }
+            System.out.println(result);
+        }
+    }
+}
+
+
+
+
+Q2 :
+
+Input1 : "Jyot Rishi Nitesh Kishlay"
+Input2 : 1 (T seconds)
+
+You are going to take T time of seconds.
+
+Every second, the odd length words move one position left and even length words move one position right
+Collisions with the walls keep original order
+
+Find the result after T seconds.
+
+Output :
+"Rishi Jyot Kishlay Nitesh" (After 1 second)
+"Rishi Kishlay Jyot Nitesh" (After 2 seconds)
+"Rishi Kishlay Jyot Nitesh" (After 3 seconds)
+
+
+// Python
+
+s = input()
+t = int(input())
+
+# Collect words manually
+words = [""] * 100
+n = 0
+word = ""
+i = 0
+while i <= len(s):
+    if i == len(s) or s[i] == ' ':
+        if len(word) > 0:
+            words[n] = word
+            n += 1
+            word = ""
+    else:
+        word += s[i]
+    i += 1
+
+sec = 0
+while sec < t:
+    moved = [0] * n
+    new_words = [""] * n
+    i = 0
+    while i < n:
+        new_words[i] = words[i]
+        i += 1
+
+    # Odd length words move left
+    i = 0
+    while i < n:
+        if len(words[i]) % 2 == 1 and moved[i] == 0 and i > 0 and moved[i-1] == 0:
+            new_words[i-1] = words[i]
+            new_words[i] = words[i-1]
+            moved[i] = 1
+            moved[i-1] = 1
+        i += 1
+
+    i = 0
+    while i < n:
+        words[i] = new_words[i]
+        moved[i] = 0
+        i += 1
+
+    # Even length words move right
+    i = 0
+    while i < n:
+        new_words[i] = words[i]
+        i += 1
+
+    i = n - 1
+    while i >= 0:
+        if len(words[i]) % 2 == 0 and moved[i] == 0 and i < n-1 and moved[i+1] == 0:
+            new_words[i+1] = words[i]
+            new_words[i] = words[i+1]
+            moved[i] = 1
+            moved[i+1] = 1
+        i -= 1
+
+    i = 0
+    while i < n:
+        words[i] = new_words[i]
+        i += 1
+
+    result = ""
+    i = 0
+    while i < n:
+        result += words[i]
+        if i != n - 1:
+            result += " "
+        i += 1
+    print(result)
+    sec += 1
+
+
+// Java
+
+import java.util.Scanner;
+public class Q2 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        int t = sc.nextInt();
+
+        // Collect words manually
+        String[] words = new String[100];
+        int n = 0;
+        String word = "";
+        for (int i = 0; i <= s.length(); i++) {
+            if (i == s.length() || s.charAt(i) == ' ') {
+                if (word.length() > 0) { words[n++] = word; word = ""; }
+            } else {
+                word += s.charAt(i);
+            }
+        }
+
+        for (int sec = 0; sec < t; sec++) {
+            int[] moved = new int[n];
+            String[] newWords = new String[n];
+            for (int i = 0; i < n; i++) newWords[i] = words[i];
+
+            // Odd length words move left
+            for (int i = 0; i < n; i++) {
+                if (words[i].length() % 2 == 1 && moved[i] == 0 && i > 0 && moved[i-1] == 0) {
+                    newWords[i-1] = words[i];
+                    newWords[i] = words[i-1];
+                    moved[i] = 1;
+                    moved[i-1] = 1;
+                }
+            }
+            for (int i = 0; i < n; i++) { words[i] = newWords[i]; moved[i] = 0; }
+
+            // Even length words move right
+            for (int i = 0; i < n; i++) newWords[i] = words[i];
+            for (int i = n-1; i >= 0; i--) {
+                if (words[i].length() % 2 == 0 && moved[i] == 0 && i < n-1 && moved[i+1] == 0) {
+                    newWords[i+1] = words[i];
+                    newWords[i] = words[i+1];
+                    moved[i] = 1;
+                    moved[i+1] = 1;
+                }
+            }
+            for (int i = 0; i < n; i++) words[i] = newWords[i];
+
+            String result = "";
+            for (int i = 0; i < n; i++) {
+                if (i > 0) result += " ";
+                result += words[i];
+            }
+            System.out.println(result);
+        }
+    }
+}

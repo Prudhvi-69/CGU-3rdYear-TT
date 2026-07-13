@@ -122,3 +122,118 @@ Output :
 
 
 
+
+
+// Q1 : Remove largest digit repeatedly
+// Input : 7869421
+// Output : 7869421 / 786421 / 76421 / 6421 / 421 / 21 / 1
+
+// Python
+
+inputVal = int(input())
+while inputVal > 9:
+    print(inputVal)
+    temp = inputVal
+    maxD = -1
+    while temp > 0:
+        digit = temp % 10
+        if digit > maxD:
+            maxD = digit
+        temp //= 10
+    temp = inputVal
+    rev = 0
+    while temp > 0:
+        rev = rev * 10 + temp % 10
+        temp //= 10
+    temp = rev
+    result = 0
+    removed = False
+    while temp > 0:
+        digit = temp % 10
+        if digit == maxD and not removed:
+            removed = True
+            temp //= 10
+            continue
+        result = result * 10 + digit
+        temp //= 10
+    inputVal = result
+print(inputVal)
+
+
+// Java
+
+import java.util.Scanner;
+public class Q1 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int inputVal = sc.nextInt();
+        while (inputVal > 9) {
+            System.out.println(inputVal);
+            int temp = inputVal, maxD = -1;
+            while (temp > 0) {
+                int digit = temp % 10;
+                if (digit > maxD) maxD = digit;
+                temp /= 10;
+            }
+            temp = inputVal;
+            int rev = 0;
+            while (temp > 0) { rev = rev * 10 + temp % 10; temp /= 10; }
+            temp = rev;
+            int result = 0;
+            boolean removed = false;
+            while (temp > 0) {
+                int digit = temp % 10;
+                if (digit == maxD && !removed) { removed = true; temp /= 10; continue; }
+                result = result * 10 + digit;
+                temp /= 10;
+            }
+            inputVal = result;
+        }
+        System.out.println(inputVal);
+    }
+}
+
+
+
+
+// Q2 : Frog in a well (jump=3, slide=2)
+// Input : 7 -> Output : 5
+
+// Python
+
+depth = int(input())
+if depth <= 3:
+    print(1)
+else:
+    days = 0
+    pos = 0
+    while pos < depth:
+        pos += 3
+        days += 1
+        if pos >= depth:
+            break
+        pos -= 2
+    print(days)
+
+
+// Java
+
+import java.util.Scanner;
+public class Q2 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int depth = sc.nextInt();
+        if (depth <= 3) {
+            System.out.println(1);
+        } else {
+            int days = 0, pos = 0;
+            while (pos < depth) {
+                pos += 3;
+                days++;
+                if (pos >= depth) break;
+                pos -= 2;
+            }
+            System.out.println(days);
+        }
+    }
+}

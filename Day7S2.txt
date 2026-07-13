@@ -145,3 +145,105 @@ Output : 2112
 
 
 
+
+
+// Q1 : Last remaining element (remove every other element in circular fashion)
+// Input : [ 6 9999 15 7 3 -24 69 ] -> Output : 69
+// Simulate: keep removing element at index 0, then skip 1, repeat
+
+// Python
+
+n = int(input())
+arr = []
+i = 0
+while i < n:
+    arr.append(int(input()))
+    i += 1
+
+while len(arr) > 1:
+    arr.append(arr[0])
+    arr.pop(0)
+    arr.pop(0)
+
+print(arr[0])
+
+
+// Java
+
+import java.util.Scanner;
+public class Q1 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[200];
+        for (int i = 0; i < n; i++) arr[i] = sc.nextInt();
+        int size = n;
+        while (size > 1) {
+            // Move first to end, remove new first
+            arr[size] = arr[0];
+            // Shift left by 1
+            for (int i = 0; i < size; i++) arr[i] = arr[i+1];
+            size--;
+            // Remove first (shift left)
+            for (int i = 0; i < size - 1; i++) arr[i] = arr[i+1];
+            size--;
+        }
+        System.out.println(arr[0]);
+    }
+}
+
+
+
+
+// Q2 : Minimum steps to equalize array
+// Input : [ 5 1 4 2 ] -> Output : 6
+// Steps = sum of |arr[i] - avg|
+
+// Python
+
+n = int(input())
+arr = []
+i = 0
+while i < n:
+    arr.append(int(input()))
+    i += 1
+
+total = 0
+i = 0
+while i < n:
+    total += arr[i]
+    i += 1
+
+avg = total // n
+steps = 0
+i = 0
+while i < n:
+    diff = arr[i] - avg
+    if diff < 0:
+        diff = -diff
+    steps += diff
+    i += 1
+print(steps)
+
+
+// Java
+
+import java.util.Scanner;
+public class Q2 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) arr[i] = sc.nextInt();
+        int total = 0;
+        for (int i = 0; i < n; i++) total += arr[i];
+        int avg = total / n;
+        int steps = 0;
+        for (int i = 0; i < n; i++) {
+            int diff = arr[i] - avg;
+            if (diff < 0) diff = -diff;
+            steps += diff;
+        }
+        System.out.println(steps);
+    }
+}

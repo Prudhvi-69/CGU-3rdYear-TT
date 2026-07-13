@@ -1,78 +1,212 @@
-Take a piece of paper and write down the topics and concepts or methods, which you are seeking to learn during the training seessions and also mention them clearly so it will be specific for individual and also for everyone in the class. 
+Q1 :
 
-
-Be a Goood Human Person. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Input1 : 	[ 5, 7, 7, 3, 13, 47, 8, 66, 69, 59, 49, 39, 88, 42, 45, 67, 99 ]
-Input2 : 69 
-
+Input1 : [ 5, 7, 7, 3, 13, 47, 8, 66, 69, 59, 49, 39, 88, 42, 45, 67, 99 ]
+Input2 : 69
 Output : [ 5, 7, 7, 3, 13, 47, 8, 66, 59, 49, 39, 88, 42, 45, 67, 99 ]
 
+Remove first occurrence of key from array
 
 
-Input1 : [ 4,10,9,42,15,45,7,51,19,69,88,42 ]
-Input2 : 15
+// Python
 
-Output : [ 4,10,9,42,45,7,51,19,69,88,42 ]
+n = int(input())
+arr = []
+i = 0
+while i < n:
+    arr.append(int(input()))
+    i += 1
 
+key = int(input())
+index = -1
+i = 0
+while i < n:
+    if arr[i] == key:
+        index = i
+        break
+    i += 1
 
+if index != -1:
+    # Shift elements left from index
+    i = index
+    while i < n - 1:
+        arr[i] = arr[i + 1]
+        i += 1
+    n -= 1
 
-
-
-
-
-
-
-[ 1 2 3 4 5 ] 
-
-key =  3 
-
-1 2 4 5 
-
-
-if => 0 to i < n-1 
-
-[ 1 2 4 5 5 ]   // skip the last index 
-
-newArray = []
-
-[ 1 2 4 5 ]  // extra space for number of values 
-
-
- 
-
-
-
-Input :    [111,11,4,69,10,9,4,42,15,45,7,69,51,19,69,88,42 ]
-
-Output : [111,11,69,10,9,42,15,45,7,69,51,19,69,88,42 ]
+i = 0
+print("[", end="")
+while i < n:
+    print(arr[i], end="")
+    if i != n - 1:
+        print(", ", end="")
+    i += 1
+print("]")
 
 
+// Java
 
-H_W / P_W / F_W / R_W : 
+import java.util.Scanner;
+public class Q1 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++)
+            arr[i] = sc.nextInt();
+        int key = sc.nextInt();
+        int index = -1;
+        for (int i = 0; i < n; i++) {
+            if (arr[i] == key) { index = i; break; }
+        }
+        if (index != -1) {
+            // Shift elements left
+            for (int i = index; i < n - 1; i++)
+                arr[i] = arr[i + 1];
+            n--;
+        }
+        System.out.print("[");
+        for (int i = 0; i < n; i++) {
+            System.out.print(arr[i]);
+            if (i != n - 1) System.out.print(", ");
+        }
+        System.out.println("]");
+    }
+}
+
+
+
+
+Q2 :
 
 Input :    [1,0,1,0,1,0,0,0,0]
 Output : [0,0,0,0,0,0,1,1,1]
 
+Move all zeroes to left, ones to right
+
+
+// Python
+
+n = int(input())
+arr = []
+i = 0
+while i < n:
+    arr.append(int(input()))
+    i += 1
+
+countZeroes = 0
+i = 0
+while i < n:
+    if arr[i] == 0:
+        countZeroes += 1
+    i += 1
+
+i = 0
+while i < n:
+    if i < countZeroes:
+        arr[i] = 0
+    else:
+        arr[i] = 1
+    i += 1
+
+print(arr)
+
+
+// Java
+
+import java.util.Scanner;
+public class Q2 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++)
+            arr[i] = sc.nextInt();
+        int countZeroes = 0;
+        for (int i = 0; i < n; i++)
+            if (arr[i] == 0) countZeroes++;
+        for (int i = 0; i < n; i++)
+            arr[i] = i < countZeroes ? 0 : 1;
+        System.out.print("[");
+        for (int i = 0; i < n; i++) {
+            System.out.print(arr[i]);
+            if (i != n - 1) System.out.print(", ");
+        }
+        System.out.println("]");
+    }
+}
+
+
+
+
+Q3 :
 
 Input :    [1,0,2,0,2,0,1,0,1,0,2]
 Output : [2,2,2,0,0,0,0,0,1,1,1]
 
- 
+Sort array of 0s, 1s and 2s
 
 
+// Python
+
+n = int(input())
+arr = []
+i = 0
+while i < n:
+    arr.append(int(input()))
+    i += 1
+
+c0 = 0
+c1 = 0
+c2 = 0
+i = 0
+while i < n:
+    if arr[i] == 0:
+        c0 += 1
+    elif arr[i] == 1:
+        c1 += 1
+    else:
+        c2 += 1
+    i += 1
+
+i = 0
+while i < n:
+    if i < c2:
+        arr[i] = 2
+    elif i < c2 + c0:
+        arr[i] = 0
+    else:
+        arr[i] = 1
+    i += 1
+
+print(arr)
+
+
+// Java
+
+import java.util.Scanner;
+public class Q3 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++)
+            arr[i] = sc.nextInt();
+        int c0 = 0, c1 = 0, c2 = 0;
+        for (int i = 0; i < n; i++) {
+            if (arr[i] == 0) c0++;
+            else if (arr[i] == 1) c1++;
+            else c2++;
+        }
+        for (int i = 0; i < n; i++) {
+            if (i < c2) arr[i] = 2;
+            else if (i < c2 + c0) arr[i] = 0;
+            else arr[i] = 1;
+        }
+        System.out.print("[");
+        for (int i = 0; i < n; i++) {
+            System.out.print(arr[i]);
+            if (i != n - 1) System.out.print(", ");
+        }
+        System.out.println("]");
+    }
+}

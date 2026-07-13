@@ -1,0 +1,189 @@
+
+Input : String 
+Output : Display if it is valid Password or not
+
+Rules : 
+1. It should always contain an Uppercase 
+2. It should always contain a Lowercase 
+3. It should always contain a Digit 
+4. It should always contain a special character
+5. It should have a minimum length of 9
+6. If the password is invalid, it should show why it is invalid.
+7. If the password is invalid, it should ask for the password again and again until you give the right password.
+8. If the password is invalid, it should ask for the password again and again but only for a limited number of times.
+For example, it should allow wrong password 5 times. 
+After 5 attempts : Attempts to enter the password is over and try again after 24 hours. Your account is locked till that tomorrow.
+
+Output : Valid Password 
+			Invalid Password 
+
+
+
+int attempts = 0;
+do{
+str = input()  // store the input value 
+int uc = 0, lc = 0, dc = 0, sc = 0;
+if ( len >= 9 )
+{
+	for( int i =0 ; i < len; i++ )
+	{ 
+		if( str[i] >= 'A' and str[i] <= 'Z' )
+			uc = 1;
+		else if (str[i] >= 'a' and str[i] <= 'z' )		
+			lc = 1;
+		else if (str[i] >= '0' and str[i] <= '9' )		
+			dc = 1;
+		else 
+			sc = 1;
+	}
+	if( uc && lc && dc && sc ) 
+		print "Valid Password"
+		break
+6. If the password is invalid, it should show why it is invalid.
+
+int attempts = 0;
+do{
+str = input()  // store the input value 
+int uc = 0, lc = 0, dc = 0, sc = 0;
+if ( len >= 9 )
+{
+	for( int i =0 ; i < len; i++ )
+	{ 
+		if( str[i] >= 'A' and str[i] <= 'Z' )
+			uc = 1;
+		else if (str[i] >= 'a' and str[i] <= 'z' )		
+			lc = 1;
+		else if (str[i] >= '0' and str[i] <= '9' )		
+			dc = 1;
+		else 
+			sc = 1;
+	}
+	if( uc && lc && dc && sc ) 
+		print "Valid Password"
+		break
+	else
+	{ 
+		attemps++;
+		if( uc == 0 )  print "Uppercase is missing"
+		if( lc == 0 )    print "Lowercase is missing"
+		if( dc == 0 )   print "Digit is missing"
+		if( sc == 0 )   print "Special character is missing"
+		print " Invalid Password,re-enter the password again"
+	}
+} 
+else 
+{ 
+	print "Minimum length for password is : 9, You have given an Invalid password. Re-enter the password again"
+}
+while( attemps < 5 )
+if ( attemps == 6 ) 
+	print "Wrong password limit exceeded. Try again after 24 hours, your account is locked till then.....🥲"
+
+
+
+
+
+
+
+Learn basics (in 4 days) 
+Learn OOPS (1 week) 
+Learn DSA (3 months+) 
+
+
+Total : 4 months = 400 questions 
+
+
+Strivers Sheet 
+
+
+
+
+
+
+
+
+
+
+// Q1 : Password Validator (5 attempts, show reason)
+
+// Python
+
+attempts = 0
+while attempts < 5:
+    s = input()
+    uc = 0
+    lc = 0
+    dc = 0
+    sc2 = 0
+    if len(s) < 9:
+        print("Minimum length for password is 9. Invalid Password. Re-enter:")
+        attempts += 1
+        continue
+    i = 0
+    while i < len(s):
+        c = s[i]
+        if c >= 'A' and c <= 'Z':
+            uc = 1
+        elif c >= 'a' and c <= 'z':
+            lc = 1
+        elif c >= '0' and c <= '9':
+            dc = 1
+        else:
+            sc2 = 1
+        i += 1
+    if uc == 1 and lc == 1 and dc == 1 and sc2 == 1:
+        print("Valid Password")
+        break
+    else:
+        if uc == 0:
+            print("Uppercase is missing")
+        if lc == 0:
+            print("Lowercase is missing")
+        if dc == 0:
+            print("Digit is missing")
+        if sc2 == 0:
+            print("Special character is missing")
+        print("Invalid Password. Re-enter:")
+        attempts += 1
+if attempts == 5:
+    print("Wrong password limit exceeded. Try again after 24 hours. Your account is locked till then.")
+
+
+// Java
+
+import java.util.Scanner;
+public class Q1 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int attempts = 0;
+        while (attempts < 5) {
+            String s = sc.nextLine();
+            int uc = 0, lc = 0, dc = 0, sp = 0;
+            if (s.length() < 9) {
+                System.out.println("Minimum length for password is 9. Invalid Password. Re-enter:");
+                attempts++;
+                continue;
+            }
+            for (int i = 0; i < s.length(); i++) {
+                char c = s.charAt(i);
+                if (c >= 'A' && c <= 'Z') uc = 1;
+                else if (c >= 'a' && c <= 'z') lc = 1;
+                else if (c >= '0' && c <= '9') dc = 1;
+                else sp = 1;
+            }
+            if (uc == 1 && lc == 1 && dc == 1 && sp == 1) {
+                System.out.println("Valid Password");
+                break;
+            } else {
+                if (uc == 0) System.out.println("Uppercase is missing");
+                if (lc == 0) System.out.println("Lowercase is missing");
+                if (dc == 0) System.out.println("Digit is missing");
+                if (sp == 0) System.out.println("Special character is missing");
+                System.out.println("Invalid Password. Re-enter:");
+                attempts++;
+            }
+        }
+        if (attempts == 5)
+            System.out.println("Wrong password limit exceeded. Try again after 24 hours. Your account is locked till then.");
+    }
+}

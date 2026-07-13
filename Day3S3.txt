@@ -123,3 +123,75 @@ print num --->  5
 
 
 
+
+
+// Q1 : Palindrome numbers in range
+// Input1 : 1000, Input2 : 9999
+
+// Python
+
+start = int(input())
+end = int(input())
+i = start
+while i <= end:
+    temp = i
+    rev = 0
+    while temp != 0:
+        rev = rev * 10 + temp % 10
+        temp //= 10
+    if rev == i:
+        print(i, end=", ")
+    i += 1
+print()
+
+
+// Java
+
+import java.util.Scanner;
+public class Q1 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int start = sc.nextInt();
+        int end = sc.nextInt();
+        for (int i = start; i <= end; i++) {
+            int temp = i, rev = 0;
+            while (temp != 0) { rev = rev * 10 + temp % 10; temp /= 10; }
+            if (rev == i) System.out.print(i + ", ");
+        }
+        System.out.println();
+    }
+}
+
+
+
+
+// Q2 : Digital root
+// Input : 569718232450 -> Output : 7
+
+// Python
+
+n = int(input())
+while n >= 10:
+    s = 0
+    while n != 0:
+        s += n % 10
+        n //= 10
+    n = s
+print(n)
+
+
+// Java
+
+import java.util.Scanner;
+public class Q2 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        long n = sc.nextLong();
+        while (n >= 10) {
+            long s = 0;
+            while (n != 0) { s += n % 10; n /= 10; }
+            n = s;
+        }
+        System.out.println(n);
+    }
+}

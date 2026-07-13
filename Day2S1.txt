@@ -108,3 +108,91 @@ Output : -69
 
 
 
+
+
+// Q1 : Maximum number in alphanumeric string
+// Input : "C30G41U i0s G37re69at511"
+// Output : 511
+
+// Python
+
+s = input()
+num = 0
+maxNum = -1
+i = 0
+while i < len(s):
+    if s[i] >= '0' and s[i] <= '9':
+        num = num * 10 + (ord(s[i]) - ord('0'))
+        if num > maxNum:
+            maxNum = num
+    else:
+        num = 0
+    i += 1
+print(maxNum)
+
+
+// Java
+
+import java.util.Scanner;
+public class Q1 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        int num = 0, maxNum = -1;
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (c >= '0' && c <= '9') {
+                num = num * 10 + (c - '0');
+                if (num > maxNum) maxNum = num;
+            } else {
+                num = 0;
+            }
+        }
+        System.out.println(maxNum);
+    }
+}
+
+
+
+
+// Q2 : Extract negative number from string
+// Input : " Temparature is very low as : -69f "
+// Output : -69
+
+// Python
+
+s = input()
+i = 0
+while i < len(s):
+    if s[i] == '-' and i + 1 < len(s) and s[i+1] >= '0' and s[i+1] <= '9':
+        num = 0
+        i += 1
+        while i < len(s) and s[i] >= '0' and s[i] <= '9':
+            num = num * 10 + (ord(s[i]) - ord('0'))
+            i += 1
+        print(-num)
+        break
+    i += 1
+
+
+// Java
+
+import java.util.Scanner;
+public class Q2 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == '-' && i + 1 < s.length() && s.charAt(i+1) >= '0' && s.charAt(i+1) <= '9') {
+                int num = 0;
+                i++;
+                while (i < s.length() && s.charAt(i) >= '0' && s.charAt(i) <= '9') {
+                    num = num * 10 + (s.charAt(i) - '0');
+                    i++;
+                }
+                System.out.println(-num);
+                break;
+            }
+        }
+    }
+}

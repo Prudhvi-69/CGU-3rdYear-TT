@@ -126,3 +126,86 @@ integer output : 115158
 
 
 
+
+
+// Q1 : Maximum single digit in alphanumeric string
+// Input : "C2G3U i9s Gr5ea1t"
+// Output : 9
+
+// Python
+
+s = input()
+maxDigit = 0
+i = 0
+while i < len(s):
+    if s[i] >= '0' and s[i] <= '9':
+        digit = ord(s[i]) - ord('0')
+        if digit > maxDigit:
+            maxDigit = digit
+    i += 1
+print(maxDigit)
+
+
+// Java
+
+import java.util.Scanner;
+public class Q1 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        int maxDigit = 0;
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (c >= '0' && c <= '9') {
+                int digit = c - '0';
+                if (digit > maxDigit) maxDigit = digit;
+            }
+        }
+        System.out.println(maxDigit);
+    }
+}
+
+
+
+
+// Q2 : Maximum number in alphanumeric string
+// Input : "C42G300U i69s Gr52ea18t"
+// Output : 300
+
+// Python
+
+s = input()
+num = 0
+maxNum = 0
+i = 0
+while i < len(s):
+    if s[i] >= '0' and s[i] <= '9':
+        num = num * 10 + (ord(s[i]) - ord('0'))
+        if num > maxNum:
+            maxNum = num
+    else:
+        num = 0
+    i += 1
+print(maxNum)
+
+
+// Java
+
+import java.util.Scanner;
+public class Q2 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        int num = 0, maxNum = 0;
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (c >= '0' && c <= '9') {
+                num = num * 10 + (c - '0');
+                if (num > maxNum) maxNum = num;
+            } else {
+                num = 0;
+            }
+        }
+        System.out.println(maxNum);
+    }
+}

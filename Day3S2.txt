@@ -88,3 +88,164 @@ Output : -69
 
 
 
+
+
+// Q1 : Frog in a well (jump=3, slide=2)
+// Input : depth -> Output : days
+
+// Python
+
+depth = int(input())
+if depth <= 3:
+    print(1)
+else:
+    days = 0
+    pos = 0
+    while pos < depth:
+        pos += 3
+        days += 1
+        if pos >= depth:
+            break
+        pos -= 2
+    print(days)
+
+
+// Java
+
+import java.util.Scanner;
+public class Q1 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int depth = sc.nextInt();
+        if (depth <= 3) {
+            System.out.println(1);
+        } else {
+            int days = 0, pos = 0;
+            while (pos < depth) {
+                pos += 3;
+                days++;
+                if (pos >= depth) break;
+                pos -= 2;
+            }
+            System.out.println(days);
+        }
+    }
+}
+
+
+
+
+// Q2 : Palindrome numbers in range
+// Input1 : 1000, Input2 : 9999
+
+// Python
+
+start = int(input())
+end = int(input())
+i = start
+while i <= end:
+    temp = i
+    rev = 0
+    while temp != 0:
+        rev = rev * 10 + temp % 10
+        temp //= 10
+    if rev == i:
+        print(i, end=", ")
+    i += 1
+print()
+
+
+// Java
+
+import java.util.Scanner;
+public class Q2 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int start = sc.nextInt();
+        int end = sc.nextInt();
+        for (int i = start; i <= end; i++) {
+            int temp = i, rev = 0;
+            while (temp != 0) { rev = rev * 10 + temp % 10; temp /= 10; }
+            if (rev == i) System.out.print(i + ", ");
+        }
+        System.out.println();
+    }
+}
+
+
+
+
+// Q3 : Digital root
+// Input : 6940861802457039821 -> Output : 2
+
+// Python
+
+n = int(input())
+while n >= 10:
+    s = 0
+    while n != 0:
+        s += n % 10
+        n //= 10
+    n = s
+print(n)
+
+
+// Java
+
+import java.util.Scanner;
+public class Q3 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        long n = sc.nextLong();
+        while (n >= 10) {
+            long s = 0;
+            while (n != 0) { s += n % 10; n /= 10; }
+            n = s;
+        }
+        System.out.println(n);
+    }
+}
+
+
+
+
+// Q4 : Extract negative number from string
+// Input : "Today the temparature is good at : -69f" -> Output : -69
+
+// Python
+
+s = input()
+i = 0
+while i < len(s):
+    if s[i] == '-' and i + 1 < len(s) and s[i+1] >= '0' and s[i+1] <= '9':
+        num = 0
+        i += 1
+        while i < len(s) and s[i] >= '0' and s[i] <= '9':
+            num = num * 10 + (ord(s[i]) - ord('0'))
+            i += 1
+        print(-num)
+        break
+    i += 1
+
+
+// Java
+
+import java.util.Scanner;
+public class Q4 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == '-' && i + 1 < s.length() && s.charAt(i+1) >= '0' && s.charAt(i+1) <= '9') {
+                int num = 0;
+                i++;
+                while (i < s.length() && s.charAt(i) >= '0' && s.charAt(i) <= '9') {
+                    num = num * 10 + (s.charAt(i) - '0');
+                    i++;
+                }
+                System.out.println(-num);
+                break;
+            }
+        }
+    }
+}

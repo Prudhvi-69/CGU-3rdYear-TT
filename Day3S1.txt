@@ -60,3 +60,125 @@ Output : 1001, 1111, 1221, 1331, 1441, 1551, 1661, 1771, 1881, 1991, 2002, 2112,
 
 
 
+
+
+// Q1 : Frog in a well
+// depth=10, up=3, down=2 -> Output : 8
+
+// Python
+
+depth = int(input())
+up = int(input())
+down = int(input())
+
+if depth <= up:
+    print(1)
+else:
+    days = 0
+    pos = 0
+    while pos < depth:
+        pos += up
+        days += 1
+        if pos >= depth:
+            break
+        pos -= down
+    print(days)
+
+
+// Java
+
+import java.util.Scanner;
+public class Q1 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int depth = sc.nextInt();
+        int up = sc.nextInt();
+        int down = sc.nextInt();
+        if (depth <= up) {
+            System.out.println(1);
+        } else {
+            int days = 0, pos = 0;
+            while (pos < depth) {
+                pos += up;
+                days++;
+                if (pos >= depth) break;
+                pos -= down;
+            }
+            System.out.println(days);
+        }
+    }
+}
+
+
+
+
+// Q2 : Digital root (repeated digit sum until single digit)
+// Input : 69184504802493710 -> Output : 8
+
+// Python
+
+n = int(input())
+while n >= 10:
+    s = 0
+    while n != 0:
+        s += n % 10
+        n //= 10
+    n = s
+print(n)
+
+
+// Java
+
+import java.util.Scanner;
+public class Q2 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        long n = sc.nextLong();
+        while (n >= 10) {
+            long s = 0;
+            while (n != 0) { s += n % 10; n /= 10; }
+            n = s;
+        }
+        System.out.println(n);
+    }
+}
+
+
+
+
+// Q3 : Print all palindrome numbers in a range
+// Input1 : 1000, Input2 : 9999
+
+// Python
+
+start = int(input())
+end = int(input())
+i = start
+while i <= end:
+    temp = i
+    rev = 0
+    while temp != 0:
+        rev = rev * 10 + temp % 10
+        temp //= 10
+    if rev == i:
+        print(i, end=", ")
+    i += 1
+print()
+
+
+// Java
+
+import java.util.Scanner;
+public class Q3 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int start = sc.nextInt();
+        int end = sc.nextInt();
+        for (int i = start; i <= end; i++) {
+            int temp = i, rev = 0;
+            while (temp != 0) { rev = rev * 10 + temp % 10; temp /= 10; }
+            if (rev == i) System.out.print(i + ", ");
+        }
+        System.out.println();
+    }
+}

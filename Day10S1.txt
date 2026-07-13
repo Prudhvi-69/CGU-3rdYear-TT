@@ -1,0 +1,426 @@
+
+Input : 5
+Output : E
+
+Input : 26 
+Output : Z
+
+Input : 30 
+Output : AD
+
+Input : 55 
+Output : BC 
+
+Input : 703 
+Output : AAA
+
+
+
+# Read the column number
+n = int(input())
+
+
+if n <= 0:
+    print("Invalid")
+else:
+    # Store the Excel column name
+    result = ""
+
+    # Convert the number to Excel column format
+    while n > 0:
+        n -= 1
+        result = chr(n % 26 + ord('A')) + result
+        n //= 26
+
+    # Print the column name
+    print(result)
+
+
+
+
+
+
+Input : UDI
+Output : What is the column number for this? 
+
+Input : CGU
+Output : 2231 
+
+Input : BbQ 
+Output : 1421 
+
+Input : RAW6 
+Output : Invalid 
+
+
+
+# Read the input and convert it to uppercase
+s = input().strip().upper()
+
+# Check if the input contains only alphabets
+if not s.isalpha():
+    print("Invalid")
+else:
+    # Store the final column number
+    result = 0
+
+    # Convert the Excel column name into its corresponding number
+    for ch in s:
+        result = result * 26 + (ord(ch) - ord('A') + 1)
+
+    # Print the result
+    print(result)
+
+
+
+
+def calculate_bonuses():
+    try:
+        n = int(input())
+        
+        total_bonus_paid = 0.0
+        
+        for _ in range(n):
+            line = input().split()
+            name = line[0]
+            salary = float(line[1])
+            rating = int(line[2])
+            
+            # Determine bonus percentage based on rating
+            if rating == 5:
+                bonus_percent = 0.20
+            elif rating == 4:
+                bonus_percent = 0.15
+            elif rating == 3:
+                bonus_percent = 0.10
+            elif rating == 2:
+                bonus_percent = 0.05
+            else:
+                bonus_percent = 0.00
+            
+            # Calculate bonus and total salary
+            bonus_amount = salary * bonus_percent
+            total_salary = salary + bonus_amount
+            
+            # Accumulate total bonus paid
+            total_bonus_paid += bonus_amount
+            
+            # Print formatted output for each employee
+            print(f"Name: {name}, Bonus: {bonus_amount:.2f}, Total: {total_salary:.2f}")
+            
+        # Print the final total bonus paid
+        print(f"Total Bonus Paid: {total_bonus_paid:.2f}")
+        
+    except (EOFError, ValueError):
+        pass
+
+if __name__ == "__main__":
+    calculate_bonuses()
+
+
+
+
+
+
+
+
+
+
+
+
+Name1 : "Sayan"
+Name2 : "Alexander"
+
+Sy
+lexder
+
+Distinct : 8
+
+A :  
+
+
+Output : A 
+
+
+
+
+
+Name1 : "Anirudh"
+Name2 : "Dolly"
+
+
+Aniruh 
+olly
+
+Distinct : 10 
+
+L 
+
+Output : L 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+n = size of array 
+Array = [ 2,6,4,0,-14,-10,11,10,9,3,-4 ]
+k = 5 
+
+//Sort the Array 
+
+Array = [ -14,-10,-4,0,2,3,4,6,9,10,11 ]
+
+product = 1 
+left = 0 
+right = n-1
+
+if k%2 == 1 
+	product *= Array[n-1]
+	k -= 1
+	right -= 1
+
+while k>0 
+	left_product = ( Array[ left ] * Array[ left+1] )	
+	right_product = ( Array[ right ] * Array[ right - 1] )	
+	
+	if left_product > right_product
+		product *= left_product
+		left += 2 
+	else 
+		product* = right_product
+		right -= 2
+	k -= 2
+
+print product 
+
+
+
+
+
+
+
+
+
+Input : 5
+Output : E
+
+Input : 26 
+Output : Z
+
+Input : 30 
+Output : AD
+
+Input : 55 
+Output : BC 
+
+Input : 703 
+Output : AAA
+
+
+
+
+
+// Q1 : Number to Excel column name
+// Input : 5 -> E, 26 -> Z, 30 -> AD, 703 -> AAA
+
+// Python
+
+n = int(input())
+if n <= 0:
+    print("Invalid")
+else:
+    result = ""
+    while n > 0:
+        n -= 1
+        result = chr(n % 26 + ord('A')) + result
+        n //= 26
+    print(result)
+
+
+// Java
+
+import java.util.Scanner;
+public class Q1 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        if (n <= 0) {
+            System.out.println("Invalid");
+        } else {
+            String result = "";
+            while (n > 0) {
+                n--;
+                result = (char)(n % 26 + 'A') + result;
+                n /= 26;
+            }
+            System.out.println(result);
+        }
+    }
+}
+
+
+
+
+// Q2 : Excel column name to number
+// Input : CGU -> 2231, BbQ -> 1421, RAW6 -> Invalid
+
+// Python
+
+s = input()
+
+# Validate all characters are alphabets
+valid = 1
+i = 0
+while i < len(s):
+    c = s[i]
+    if not (('A' <= c <= 'Z') or ('a' <= c <= 'z')):
+        valid = 0
+    i += 1
+
+if valid == 0:
+    print("Invalid")
+else:
+    result = 0
+    i = 0
+    while i < len(s):
+        c = s[i]
+        if 'a' <= c <= 'z':
+            c = chr(ord(c) - 32)
+        result = result * 26 + (ord(c) - ord('A') + 1)
+        i += 1
+    print(result)
+
+
+// Java
+
+import java.util.Scanner;
+public class Q2 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        boolean valid = true;
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (!((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))) {
+                valid = false;
+                break;
+            }
+        }
+        if (!valid) {
+            System.out.println("Invalid");
+        } else {
+            int result = 0;
+            for (int i = 0; i < s.length(); i++) {
+                char c = s.charAt(i);
+                if (c >= 'a') c = (char)(c - 32);
+                result = result * 26 + (c - 'A' + 1);
+            }
+            System.out.println(result);
+        }
+    }
+}
+
+
+
+
+// Q3 : Max product of k elements from sorted array
+// Array = [ 2,6,4,0,-14,-10,11,10,9,3,-4 ], k = 5
+
+// Python
+
+n = int(input())
+arr = []
+i = 0
+while i < n:
+    arr.append(int(input()))
+    i += 1
+k = int(input())
+
+# Bubble sort
+i = 0
+while i < n - 1:
+    j = 0
+    while j < n - i - 1:
+        if arr[j] > arr[j+1]:
+            temp = arr[j]
+            arr[j] = arr[j+1]
+            arr[j+1] = temp
+        j += 1
+    i += 1
+
+product = 1
+left = 0
+right = n - 1
+
+if k % 2 == 1:
+    product *= arr[n-1]
+    k -= 1
+    right -= 1
+
+while k > 0:
+    leftProduct = arr[left] * arr[left+1]
+    rightProduct = arr[right] * arr[right-1]
+    if leftProduct > rightProduct:
+        product *= leftProduct
+        left += 2
+    else:
+        product *= rightProduct
+        right -= 2
+    k -= 2
+
+print(product)
+
+
+// Java
+
+import java.util.Scanner;
+public class Q3 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) arr[i] = sc.nextInt();
+        int k = sc.nextInt();
+        // Bubble sort
+        for (int i = 0; i < n - 1; i++)
+            for (int j = 0; j < n - i - 1; j++)
+                if (arr[j] > arr[j+1]) { int t = arr[j]; arr[j] = arr[j+1]; arr[j+1] = t; }
+        long product = 1;
+        int left = 0, right = n - 1;
+        if (k % 2 == 1) { product *= arr[n-1]; k--; right--; }
+        while (k > 0) {
+            long lp = (long)arr[left] * arr[left+1];
+            long rp = (long)arr[right] * arr[right-1];
+            if (lp > rp) { product *= lp; left += 2; }
+            else { product *= rp; right -= 2; }
+            k -= 2;
+        }
+        System.out.println(product);
+    }
+}

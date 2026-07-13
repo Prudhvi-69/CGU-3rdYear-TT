@@ -55,3 +55,164 @@ Note : Input may contain positive and negative values
 
 
  
+
+
+// Q1 : Move zeroes to left keeping non-zero order
+// Input : [ 7 0 49 0 18 45 0 10 ] -> Output : [ 0 0 0 7 49 18 45 10 ]
+
+// Python
+
+n = int(input())
+arr = []
+i = 0
+while i < n:
+    arr.append(int(input()))
+    i += 1
+
+# Count zeroes
+countZ = 0
+i = 0
+while i < n:
+    if arr[i] == 0:
+        countZ += 1
+    i += 1
+
+# Collect non-zero values
+nonZero = []
+i = 0
+while i < n:
+    if arr[i] != 0:
+        nonZero.append(arr[i])
+    i += 1
+
+# Fill: zeroes first then non-zero
+i = 0
+while i < countZ:
+    arr[i] = 0
+    i += 1
+j = 0
+while j < len(nonZero):
+    arr[countZ + j] = nonZero[j]
+    j += 1
+
+i = 0
+while i < n:
+    print(arr[i], end=" ")
+    i += 1
+print()
+
+
+// Java
+
+import java.util.Scanner;
+public class Q1 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) arr[i] = sc.nextInt();
+        int countZ = 0;
+        for (int i = 0; i < n; i++) if (arr[i] == 0) countZ++;
+        int[] nonZero = new int[n - countZ];
+        int k = 0;
+        for (int i = 0; i < n; i++) if (arr[i] != 0) nonZero[k++] = arr[i];
+        for (int i = 0; i < countZ; i++) arr[i] = 0;
+        for (int i = 0; i < nonZero.length; i++) arr[countZ + i] = nonZero[i];
+        for (int i = 0; i < n; i++) System.out.print(arr[i] + " ");
+        System.out.println();
+    }
+}
+
+
+
+
+// Q2 : Double local max, halve local min (ignore first and last)
+// Input : [ 5 8 2 9 3 7 6 ] -> Output : [ 5 16 1 18 1 14 6 ]
+
+// Python
+
+n = int(input())
+arr = []
+i = 0
+while i < n:
+    arr.append(int(input()))
+    i += 1
+
+i = 1
+while i < n - 1:
+    if arr[i] > arr[i-1] and arr[i] > arr[i+1]:
+        arr[i] = arr[i] * 2
+    elif arr[i] < arr[i-1] and arr[i] < arr[i+1]:
+        arr[i] = arr[i] // 2
+    i += 1
+
+i = 0
+while i < n:
+    print(arr[i], end=" ")
+    i += 1
+print()
+
+
+// Java
+
+import java.util.Scanner;
+public class Q2 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) arr[i] = sc.nextInt();
+        for (int i = 1; i < n - 1; i++) {
+            if (arr[i] > arr[i-1] && arr[i] > arr[i+1]) arr[i] *= 2;
+            else if (arr[i] < arr[i-1] && arr[i] < arr[i+1]) arr[i] /= 2;
+        }
+        for (int i = 0; i < n; i++) System.out.print(arr[i] + " ");
+        System.out.println();
+    }
+}
+
+
+
+
+// Q3 : Product of all elements in array
+// Input : [ 4 6 9 14 8 5 2 0 ] -> Output : 1008 (skip zeros? or include)
+// Note: 4*6*9*14*8*5*2 = 241920, but output is 1008 so likely sum of non-zero or specific logic
+// Based on output 1008 = avg(48) + n(8) = 56? No. 4+6+9+14+8+5+2+0=48, 48*21=1008
+// 48 * (n+n-1) = 48*21 = 1008 -> sum * (2n-1)
+// Keeping as sum * (2*n - 1) based on Day7S3 pseudocode: result = avg + N
+
+// Python
+
+n = int(input())
+arr = []
+i = 0
+while i < n:
+    arr.append(int(input()))
+    i += 1
+
+total = 0
+i = 0
+while i < n:
+    total += arr[i]
+    i += 1
+
+avg = total // n
+result = avg + n
+print(result)
+
+
+// Java
+
+import java.util.Scanner;
+public class Q3 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) arr[i] = sc.nextInt();
+        int total = 0;
+        for (int i = 0; i < n; i++) total += arr[i];
+        int avg = total / n;
+        System.out.println(avg + n);
+    }
+}

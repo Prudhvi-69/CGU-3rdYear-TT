@@ -52,3 +52,124 @@ Output :
 
 
 
+
+
+// Q1 : Zombie generations
+// Input : n (generation) -> Output : total zombies
+// Pattern: GEN-0:1, GEN-1:2, GEN-2:4, GEN-3:7
+// From GEN-4: val = 2*prev - prev[i-4], if divisible by 9 subtract 1
+
+// Python
+
+n = int(input())
+vals = [1, 2, 4, 7]
+if n <= 3:
+    print(vals[n])
+else:
+    i = 4
+    while i <= n:
+        v = 2 * vals[i-1] - vals[i-4]
+        if v % 9 == 0:
+            v -= 1
+        vals.append(v)
+        i += 1
+    print(vals[n])
+
+
+// Java
+
+import java.util.Scanner;
+public class Q1 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] vals = new int[n + 1];
+        vals[0] = 1;
+        if (n >= 1) vals[1] = 2;
+        if (n >= 2) vals[2] = 4;
+        if (n >= 3) vals[3] = 7;
+        for (int i = 4; i <= n; i++) {
+            int v = 2 * vals[i-1] - vals[i-4];
+            if (v % 9 == 0) v -= 1;
+            vals[i] = v;
+        }
+        System.out.println(vals[n]);
+    }
+}
+
+
+
+
+// Q2 : Remove largest digit repeatedly until single digit
+// Input : 49623
+// Output : 49623 / 4623 / 423 / 23 / 2
+
+// Python
+
+inputVal = int(input())
+while inputVal > 9:
+    print(inputVal)
+    temp = inputVal
+    maxD = -1
+    # Find max digit
+    while temp > 0:
+        digit = temp % 10
+        if digit > maxD:
+            maxD = digit
+        temp //= 10
+    temp = inputVal
+    rev = 0
+    # Reverse
+    while temp > 0:
+        rev = rev * 10 + temp % 10
+        temp //= 10
+    temp = rev
+    result = 0
+    # Rebuild skipping max digit
+    while temp > 0:
+        digit = temp % 10
+        if digit == maxD:
+            temp //= 10
+            maxD = -1  # Remove only first occurrence
+            continue
+        result = result * 10 + digit
+        temp //= 10
+    inputVal = result
+print(inputVal)
+
+
+// Java
+
+import java.util.Scanner;
+public class Q2 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int inputVal = sc.nextInt();
+        while (inputVal > 9) {
+            System.out.println(inputVal);
+            int temp = inputVal, maxD = -1;
+            // Find max digit
+            while (temp > 0) {
+                int digit = temp % 10;
+                if (digit > maxD) maxD = digit;
+                temp /= 10;
+            }
+            temp = inputVal;
+            int rev = 0;
+            // Reverse
+            while (temp > 0) { rev = rev * 10 + temp % 10; temp /= 10; }
+            temp = rev;
+            int result = 0;
+            boolean removed = false;
+            // Rebuild skipping first occurrence of max digit
+            while (temp > 0) {
+                int digit = temp % 10;
+                if (digit == maxD && !removed) { removed = true; temp /= 10; continue; }
+                result = result * 10 + digit;
+                temp /= 10;
+            }
+            inputVal = result;
+        }
+        System.out.println(inputVal);
+    }
+}

@@ -111,3 +111,137 @@ I guess you are missing to look at the clock for the remaining 2 more minutes
 
 
 
+
+
+// Q1 : Adjacent digit difference sequence
+// Input : 5432691 -> 111438 / 315 / 24 / 2
+
+// Python
+
+inputVal = int(input())
+temp = inputVal
+count = 0
+while temp > 0:
+    count += 1
+    temp //= 10
+arr = [0] * count
+temp = inputVal
+i = count - 1
+while i >= 0:
+    arr[i] = temp % 10
+    temp //= 10
+    i -= 1
+
+while count > 1:
+    i = 0
+    while i < count:
+        print(arr[i], end="")
+        i += 1
+    print()
+    i = 0
+    while i < count - 1:
+        diff = arr[i] - arr[i+1]
+        if diff < 0:
+            diff = -diff
+        arr[i] = diff
+        i += 1
+    count -= 1
+print(arr[0])
+
+
+// Java
+
+import java.util.Scanner;
+public class Q1 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int inputVal = sc.nextInt();
+        int temp = inputVal, count = 0;
+        while (temp > 0) { count++; temp /= 10; }
+        int[] arr = new int[count];
+        temp = inputVal;
+        for (int i = count - 1; i >= 0; i--) { arr[i] = temp % 10; temp /= 10; }
+        while (count > 1) {
+            for (int i = 0; i < count; i++) System.out.print(arr[i]);
+            System.out.println();
+            for (int i = 0; i < count - 1; i++) {
+                int diff = arr[i] - arr[i+1];
+                if (diff < 0) diff = -diff;
+                arr[i] = diff;
+            }
+            count--;
+        }
+        System.out.println(arr[0]);
+    }
+}
+
+
+
+
+// Q2 : GOOD/BAD check - keep reducing by adjacent differences until single digit
+// If result reaches single digit directly -> GOOD, else if it cycles -> BAD
+// Input : 56925 -> 243 / 36 / 54 / 45 / BAD
+// Input : 23456 -> 120 / 6 / GOOD
+
+// Python
+
+inputVal = int(input())
+temp = inputVal
+count = 0
+while temp > 0:
+    count += 1
+    temp //= 10
+arr = [0] * count
+temp = inputVal
+i = count - 1
+while i >= 0:
+    arr[i] = temp % 10
+    temp //= 10
+    i -= 1
+
+while count > 1:
+    i = 0
+    while i < count:
+        print(arr[i], end="")
+        i += 1
+    print()
+    i = 0
+    while i < count - 1:
+        diff = arr[i] - arr[i+1]
+        if diff < 0:
+            diff = -diff
+        arr[i] = diff
+        i += 1
+    count -= 1
+
+if arr[0] == 0:
+    print("GOOD")
+else:
+    print("BAD")
+
+
+// Java
+
+import java.util.Scanner;
+public class Q2 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int inputVal = sc.nextInt();
+        int temp = inputVal, count = 0;
+        while (temp > 0) { count++; temp /= 10; }
+        int[] arr = new int[count];
+        temp = inputVal;
+        for (int i = count - 1; i >= 0; i--) { arr[i] = temp % 10; temp /= 10; }
+        while (count > 1) {
+            for (int i = 0; i < count; i++) System.out.print(arr[i]);
+            System.out.println();
+            for (int i = 0; i < count - 1; i++) {
+                int diff = arr[i] - arr[i+1];
+                if (diff < 0) diff = -diff;
+                arr[i] = diff;
+            }
+            count--;
+        }
+        System.out.println(arr[0] == 0 ? "GOOD" : "BAD");
+    }
+}
