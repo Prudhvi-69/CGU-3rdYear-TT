@@ -1,0 +1,514 @@
+1. Build a stack containing positive and negative integer values in it
+	
+	Input :		 0 -13 4 8 11 69 2005 -6 7 67 
+
+	Output :  0 -13 4 8 11 69 2005 -6 7 67 
+
+
+
+
+
+
+
+Stack[] = {   } 
+		  tos
+
+Reverse[] = { 67 7 -6 2005 69 11 8 4 -13 0 }
+														  tos 
+// Using an Extra stack to store the values from the input stack in reverse order and pop them one by one
+
+display() 
+{ 
+	! RevEmpty()
+		RevPeek()
+		RevPop()
+} 
+
+// Recursively call the function until the stack is empty and every time till it is not empty, we are going to store top element, pop it and call the function recursively until it is empty. 
+reverse( stack, tos )
+{ 
+	isEmpty
+		return 
+	int val = stack [ tos ] 
+	pop()
+	reverse( stack, tos) 	
+	print val 
+}
+
+
+
+Inserting an element at the bottom of the Stack 
+
+Stack : [ 6 9 49 69 100 26 911 147 420 ] 
+Value at the Bottom : 69
+
+Output Stack : [ 69 6 9 49 69 100 26 911 147 420 ]
+
+If the Stack is full, show pushing is not possible 
+If the Stack is not full, push at element to the bottom of the stack. 
+
+
+
+
+reverse( stack, tos, bottomVal )
+{ 
+	isEmpty
+		push(bottomVal)
+		return 
+	int val = stack [ tos ] 
+	pop()
+	reverse( stack, tos) 	
+	push(val)
+}
+
+
+
+
+
+
+
+Reverse.push(bottomVal) 
+Reverse Stack : [ 5 4 3 2 1 0 ]
+pushBottom() 
+{ 
+	! RevEmpty()
+		RevPeek()
+		RevPop()
+}
+
+
+Stack.push(bottomVal) 
+Reverse Stack : [ 5 4 3 2 1 0 ]
+pushBottom() 
+{ 
+	! RevEmpty()
+		Stack.push(Reverse[top])
+		RevPop()
+}
+
+
+
+
+1. Decimal to Binary 
+2. Hexadecimal to Binary 
+3. Decimal to Octal 
+4. Octal to Binary 
+5. Hexadecimal to Octal 
+ 
+	But using a Stack 
+	
+
+
+
+Q1
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+
+        Stack<Integer> stack = new Stack<>();
+
+        if (n == 0) {
+            System.out.println(0);
+            return;
+        }
+
+        while (n > 0) {
+            stack.push(n % 2);
+            n = n / 2;
+        }
+
+        while (!stack.isEmpty()) {
+            System.out.print(stack.pop());
+        }
+    }
+}
+
+
+n = int(input())
+
+stack = []
+
+if n == 0:
+    print(0)
+else:
+    while n > 0:
+        stack.append(n % 2)
+        n //= 2
+
+    while stack:
+        print(stack.pop(), end="")
+
+
+
+
+
+Q2 
+
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String hex = sc.next().toUpperCase();
+
+        String[] binary = {
+                "0000","0001","0010","0011",
+                "0100","0101","0110","0111",
+                "1000","1001","1010","1011",
+                "1100","1101","1110","1111"
+        };
+
+        Stack<Character> stack = new Stack<>();
+
+        for(int i=hex.length()-1;i>=0;i--){
+            char ch=hex.charAt(i);
+
+            int value;
+
+            if(ch>='0' && ch<='9')
+                value=ch-'0';
+            else
+                value=ch-'A'+10;
+
+            String b=binary[value];
+
+            for(int j=3;j>=0;j--)
+                stack.push(b.charAt(j));
+        }
+
+        while(!stack.isEmpty())
+            System.out.print(stack.pop());
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+hex_num = input().upper()
+
+binary = [
+    "0000","0001","0010","0011",
+    "0100","0101","0110","0111",
+    "1000","1001","1010","1011",
+    "1100","1101","1110","1111"
+]
+
+stack = []
+
+for ch in hex_num[::-1]:
+    if '0' <= ch <= '9':
+        value = ord(ch) - ord('0')
+    else:
+        value = ord(ch) - ord('A') + 10
+
+    b = binary[value]
+
+    for bit in b[::-1]:
+        stack.append(bit)
+
+while stack:
+    print(stack.pop(), end="")
+
+
+
+
+Q3 
+
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+
+        Stack<Integer> stack = new Stack<>();
+
+        if(n==0){
+            System.out.println(0);
+            return;
+        }
+
+        while(n>0){
+            stack.push(n%8);
+            n/=8;
+        }
+
+        while(!stack.isEmpty())
+            System.out.print(stack.pop());
+    }
+}
+
+
+n = int(input())
+
+stack = []
+
+if n == 0:
+    print(0)
+else:
+    while n > 0:
+        stack.append(n % 8)
+        n //= 8
+
+    while stack:
+        print(stack.pop(), end="")
+
+
+
+
+
+
+Q4 
+
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        String oct = sc.next();
+
+        String[] binary = {
+                "000","001","010","011",
+                "100","101","110","111"
+        };
+
+        Stack<Character> stack = new Stack<>();
+
+        for(int i=oct.length()-1;i>=0;i--){
+
+            int digit=oct.charAt(i)-'0';
+
+            String b=binary[digit];
+
+            for(int j=2;j>=0;j--)
+                stack.push(b.charAt(j));
+        }
+
+        while(!stack.isEmpty())
+            System.out.print(stack.pop());
+    }
+}
+
+
+
+
+octal = input()
+
+binary = [
+    "000","001","010","011",
+    "100","101","110","111"
+]
+
+stack = []
+
+for ch in octal[::-1]:
+    b = binary[int(ch)]
+
+    for bit in b[::-1]:
+        stack.append(bit)
+
+while stack:
+    print(stack.pop(), end="")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Q5 
+
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        String hex = sc.next().toUpperCase();
+
+        int decimal = Integer.parseInt(hex, 16);
+
+        Stack<Integer> stack = new Stack<>();
+
+        if(decimal==0){
+            System.out.println(0);
+            return;
+        }
+
+        while(decimal>0){
+            stack.push(decimal%8);
+            decimal/=8;
+        }
+
+        while(!stack.isEmpty())
+            System.out.print(stack.pop());
+    }
+}
+
+
+
+hex_num = input()
+
+decimal = int(hex_num, 16)
+
+stack = []
+
+if decimal == 0:
+    print(0)
+else:
+    while decimal > 0:
+        stack.append(decimal % 8)
+        decimal //= 8
+
+    while stack:
+        print(stack.pop(), end="")
+
+
+
+
+
+
+
+
+
+
+
+Input Stack : [ 1 2 3 4 5 ] 
+bottomVal = 0
+
+
+while( !StackisEmpty) 
+{ 
+	Reverse.push(stack[top]) 
+	pop()
+}
+
+Reverse.push(bottomVal) 
+Reverse Stack : [ 5 4 3 2 1 0 ]
+pushBottom() 
+{ 
+	! RevEmpty()
+		RevPeek()
+		RevPop()
+}
+
+Input Stack : [ 1 2 3 4 5 ] 
+bottomVal = 0
+
+
+while( !StackisEmpty) 
+{ 
+	Reverse.push(stack[top]) 
+	pop()
+}
+
+Stack.push(bottomVal) 
+
+Reverse Stack : [ 5 4 3 2 1 0 ]
+
+pushBottom() 
+{ 
+	! RevEmpty()
+		Stack.push(Reverse[top])
+		RevPop()
+}
+
+Stack : [ 0 1 2 3 4 5 ]
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

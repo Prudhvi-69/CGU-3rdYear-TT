@@ -1,0 +1,157 @@
+It's just as I expected - Madara's voice from Obito's body
+
+Almighty Push - Pain
+
+Getsuha Tensho - IchiGOAT
+
+Sun Breathing - Yoroichi, Tanjiro  
+
+Kennnyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy - Levi 
+
+Bankai : Senbonzakura Kageyoshi - Byakuya Kuchiki 
+
+Kamehameha...........................................  - Goku 
+
+I WIN......  (laughs evil-ly) - best Death Note wielder with the sole exception of your Sensei
+
+As long as there is a place to run, I will not choose to fight - Thorffin 
+
+Whoever is going to answer all of these correctly is gonna get a Lotus Biscoff 
+
+
+
+
+
+
+
+
+
+
+You are going to write a code taking the input as a Set of Commands and these set of commands are going to be stopped once we'll be giving "exit" as the input as part of the commands.
+If the commands are starting with : "open", you are going to take that value into the code
+If the command is : "back", you are going to remove the previous command from code
+If the command is : "exit", you are going to stop the input process and display the most recent value on the top most side. 
+
+Input : Context =====> Consider we are giving a certain commands after opening the Browser, when we click on back button, it will be redirecting to the previous page and if you open another page, it will be opened on top of existing one. 
+
+Open Google 
+Open Gmail 
+Open purchases 
+back
+back
+Open Photos 
+Open Memories 
+back 
+exit 
+
+Output : Photos 
+
+
+
+
+
+
+
+
+
+
+
+	elif command == "open": 
+		if top == 100: 
+			print Stack Overflow
+			break
+		top += 1
+		pushValue = Original_Input[5:]
+		stack[top] = pushValue
+	else 
+		print "Invalid Command"
+		break
+
+
+
+
+
+
+command[0] == 'o' || command[0] == 'O' && 
+command[1] == 'p' || command[1] == 'P' && command[2] == 'e' || command[2] == 'E' && command[3] == 'n' || command[3] == 'N'  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+if males == true 
+	stop.talking()
+elif females == true 
+	stop.talking()
+else
+	youCan.talk()
+
+#Applicable for all Human Students in the Class
+
+
+
+
+
+
+
+is_exit = true
+top = -1
+stack = [0] * 100
+while is_exit: 
+	Original_Input = input()
+	command = Original_Input[0:4]
+	if command == "exit": 
+		is_exit = false
+		print( stack[ top ] ) 
+		break
+	elif command == "back": 
+		if top == -1:
+			print Stack is Empty 
+			break 
+		top -= 1
+	if command == "open": 
+		if top == 100: 
+			print Stack Overflow
+			break
+		top += 1
+		pushValue = Original_Input[5:]
+		stack[top] = pushValue
+
+ 
+		
+Consider we all are part of a Heist. 
+We are going to steal something valuable from a Highly Secured Vault.
+When we are going to enter the castle, we are going to cross or enter multiple doors and each door will be equipped with a Laser Beam. 
+Whenever you are entering a door, the Laser Beam gets activated and it will be deactivated only if you exit through that door. 
+Our task is to find out which Laser Beams are active once our Heist is over.
+
+Input : " L1 L2 L3 L3 L2 L1 L4 L5 L4 L6 "
+Output : L5 L6 
+
+Input : " L1 L2 L3 L2 L1 L4 L5 L4 L5 "
+Output : L3 L5 
+
+
+
+
+
+
+
+
+
+
+
+
+

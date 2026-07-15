@@ -1,0 +1,68 @@
+Humans arrived into the Dungeon can start considering things seriously. 
+
+We need few volunteers for solving the problems of people and help those in need with the concepts of Stacks and Queues because, this weeks CBT is going to be related to the topics from Stacks and Queues only. 
+
+You shall PAY such relinquishing attention to the things that are going to happen from now inside the Dungeon.
+
+The problems of today's are gonna play a major role in this week's CBT. So be attentive and vigilant, my dear Human People.....🧟
+
+1. You have to build a Stack using an Array 
+2. You have to build a Stack using a Linked List 
+3. You have to build two Stacks using the space of a Single Array. 
+4.
+5.
+
+
+ Functions on Stack 
+1. Push 
+2. Pop
+3. Peek 
+4. Display 
+5. isEmpty 
+6. isFull 
+
+
+Welcome to Human World, today we are writing Stack Program 
+Select an Option from the below to start the code.
+1. Push 2. Pop 3. Peek 4. Display 5. isEmpty 6. isFull 7. exit 
+1
+Enter the element that you want to push into the Stack 
+45
+45 Pushed into the Stack 
+1. Push 2. Pop 3. Peek 4. Display 5. isEmpty 6. isFull 7. exit 
+1
+Enter the element that you want to push into the Stack 
+32
+32 Pushed into the Stack 
+1. Push 2. Pop 3. Peek 4. Display 5. isEmpty 6. isFull 7. exit 
+1
+Enter the element that you want to push into the Stack 
+69
+69 Pushed into the Stack 
+1. Push 2. Pop 3. Peek 4. Display 5. isEmpty 6. isFull 7. exit 
+3
+Top most element in the Stack is : 69  
+
+
+
+
+
+
+Enter the Size of the Stack :  5 
+Enter the elements into the Stack : 
+12 78 69 32 55
+Popped element is : 55 
+Peek element is : 32 
+Displaying Stack : 32 69 78 12 
+
+
+
+
+
+
+
+
+
+
+
+

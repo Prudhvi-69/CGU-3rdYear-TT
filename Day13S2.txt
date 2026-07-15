@@ -1,0 +1,111 @@
+Humansssssssssssss, today's questions will be important for this week's CBT.
+
+Like the text you've received from your Sensei, this week's CBT is based on Stacks and Queues. So beware.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+All of the ways below should be done without using the builtin Stack from collections or deque. 
+
+
+1. Building a Stack using an Array
+2. Building a Stack using a Linked List 
+3. Building two Stacks using a single Array (On a static sized stacks)
+4. 
+
+
+Functions on a Stack 
+1. Push 
+2. Pop 
+3. Peek 
+4. Display 
+5. isEmpty
+6. isFull 
+7. Access : Takes user input for accessing an element in the Stack and denies if it is not TOS
+
+
+
+
+
+
+
+Stack1 = 4
+Stack2 = 6 
+
+Push : Stack1 -> 3
+Push : Stack1 -> 5
+Push : Stack2 -> 6
+Push : Stack2 -> 7
+Pop : Stack1 : 
+Pop : Stack1 : 
+Pop : Stack1 : 
+Peek : Stack2 : 7
+
+[ , , , , , , , ,7,6]
+
+
+
+Conditions needs to be checked for Stack1 and Stack2 for full and empty logics. 
+
+Implementation of two stacks using a Single Array 
+
+
+If stack1 empty 
+	top1 == -1 
+if stack2 empty 
+	top2 == arraySize
+if stack1 full 
+	top1 == arraySize - stack2Size 
+if stack2 full 
+	top2 == arraySize - stack1Size 
+
+
+Stack1 = 4										
+Stack2 = 5										
+										
+TOP1 										TOP2
+										
+Push	6	3	12							
+Pop	Stack1 	STcak2 								
+Peek	6									
+Display	44, 12, 6 									
+isEmpty 										
+isFull										
+Access										
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

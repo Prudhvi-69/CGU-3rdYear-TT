@@ -1,0 +1,274 @@
+Q1. 
+Consider we are part of a heist. 
+We are going to a highly secured vault to get something for CGU.
+Everytime when we are going or crossing a door, there's a light beam that gets activated and if we cross the same light beam, we will be safe and it will be closed, but if we do not cross or come back in the same path, it is going to be acitve for a long time and people from whom we are stealing might get an alarm as the beam is active and showing the proof of heist.
+So, we need to know once we are done, which beams are active at the end.
+
+We are going to take some Strings input as the values of each Light Beam as :
+L1,L2,L3.... so on, how many beams we are crossing with and if we cross the same beam it is going to be deactivated. Display the active Light Beams after a certain time. 
+
+Input : "L1 L2 L3 L3 L4 L2 L5 L5 L6"
+Output : "L1 L4 L6" 
+
+Input : "L1 L2 L3 L3 L4 L2 L6 L2 L3 L2 L3"
+Output : "L1 L4 L6 L3" 
+
+iNPUT : "( [ { } < ] -> [ { ] }"
+
+( < -> { 
+
+Input : L4 L3 L5 L3 L4 L2 L3 L2 L3 
+Output : L5 L3 
+
+Input : { [ ( ] } < [ > ]
+Output : ( [ 
+
+arr = input().split()
+
+stack = []
+leaked = []
+
+for beam in arr:
+
+    skip = False
+    for x in leaked:
+        if x == beam:
+            skip = True
+            break
+
+    if skip:
+        continue
+
+    if len(stack) == 0:
+        stack.append(beam)
+        continue
+
+    if stack[-1] == beam:
+        stack.pop()
+        continue
+
+    pos = -1
+    for i in range(len(stack)):
+        if stack[i] == beam:
+            pos = i
+            break
+
+    if pos != -1:
+
+        i = len(stack) - 1
+        while i > pos:
+            found = False
+            for x in leaked:
+                if x == stack[i]:
+                    found = True
+                    break
+            if not found:
+                leaked.append(stack[i])
+            stack.pop()
+            i -= 1
+
+        stack.pop()
+
+    else:
+        stack.append(beam)
+
+answer = []
+
+for x in stack:
+    answer.append(x)
+
+for x in leaked:
+    found = False
+    for y in answer:
+        if x == y:
+            found = True
+            break
+    if not found:
+        answer.append(x)
+
+for x in answer:
+    print(x, end=" ")
+
+
+import java.util.Scanner;
+import java.util.Stack;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        String[] arr = sc.nextLine().split(" ");
+
+        Stack<String> stack = new Stack<>();
+        Stack<String> temp = new Stack<>();
+        Stack<String> leaked = new Stack<>();
+
+        for (String beam : arr) {
+
+            boolean skip = false;
+            for (String x : leaked) {
+                if (x.equals(beam)) {
+                    skip = true;
+                    break;
+                }
+            }
+
+            if (skip)
+                continue;
+
+            if (stack.isEmpty()) {
+                stack.push(beam);
+                continue;
+            }
+
+            if (stack.peek().equals(beam)) {
+                stack.pop();
+                continue;
+            }
+
+            boolean found = false;
+
+            while (!stack.isEmpty()) {
+
+                if (stack.peek().equals(beam)) {
+                    found = true;
+                    stack.pop();
+                    break;
+                }
+
+                temp.push(stack.pop());
+            }
+
+            if (found) {
+
+                while (!temp.isEmpty()) {
+
+                    String x = temp.pop();
+
+                    boolean exist = false;
+                    for (String y : leaked) {
+                        if (y.equals(x)) {
+                            exist = true;
+                            break;
+                        }
+                    }
+
+                    if (!exist)
+                        leaked.push(x);
+                }
+
+            } else {
+
+                while (!temp.isEmpty())
+                    stack.push(temp.pop());
+
+                stack.push(beam);
+            }
+        }
+
+        Stack<String> result = new Stack<>();
+
+        for (String x : stack)
+            result.push(x);
+
+        for (String x : leaked) {
+
+            boolean exist = false;
+
+            for (String y : result) {
+                if (y.equals(x)) {
+                    exist = true;
+                    break;
+                }
+            }
+
+            if (!exist)
+                result.push(x);
+        }
+
+        for (String x : result)
+            System.out.print(x + " ");
+    }
+}
+
+
+
+Q2: 
+
+Commands : 
+
+OPEN google 
+OpeN  gmail
+Back 
+OpEN Youtube 
+opeN settings
+back
+BACK
+
+
+Print the current webpage 
+
+
+
+n = int(input())
+
+stack = []
+
+for i in range(n):
+    command = input().split()
+
+    if command[0].upper() == "OPEN":
+        stack.append(command[1])
+
+    elif command[0].upper() == "BACK":
+        if len(stack) > 0:
+            stack.pop()
+
+if len(stack) == 0:
+    print("No Page")
+else:
+    print(stack[-1])
+
+
+
+
+import java.util.Scanner;
+import java.util.Stack;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int n = Integer.parseInt(sc.nextLine());
+
+        Stack<String> stack = new Stack<>();
+
+        for (int i = 0; i < n; i++) {
+
+            String line = sc.nextLine();
+            String[] parts = line.split(" ");
+
+            if (parts[0].equalsIgnoreCase("OPEN")) {
+                stack.push(parts[1]);
+            }
+            else if (parts[0].equalsIgnoreCase("BACK")) {
+                if (!stack.isEmpty()) {
+                    stack.pop();
+                }
+            }
+        }
+
+        if (stack.isEmpty()) {
+            System.out.println("No Page");
+        } else {
+            System.out.println(stack.peek());
+        }
+    }
+}
+
+
+
+
+
+

@@ -1,0 +1,293 @@
+We might be solving less problems from today due to the difficulty level in questions.
+
+Input : Set of Commands after opening a Browser
+
+Open Google 
+Open Gmail 
+OPeN Purchases 
+back
+BACK
+OpEN Photos 
+oPEn Memories 
+back 
+exit
+
+Output : Current page in the Browser : Photos 
+
+Hint : Using a Stack 
+
+
+
+boolean is_exit = true;
+String Array = new String[100];
+int tos = -1;
+while(is_exit) 
+{
+	String input = obj.nextLine();
+	String command = substring(0,4)
+	if( command.equalsIgnoreCase("open") ) 
+	{ 
+		tos++;
+		String pushVal = substring(5)
+		Array[tos] = pushVal;
+	} 
+
+
+	if( command.equalsIgnoreCase("back"))
+	{
+		if( tos == -1)
+			print "Underflow"
+			break
+		tos--;
+	} 
+	if( command.equalsIgnoreCase("exit") ) 
+	{ 
+		if( tos == -1) 
+			print "Stack is Empty"
+			break;
+		print Array[ tos ] ;
+	} 	
+
+
+
+
+
+
+
+
+
+
+Consider we are part of a Heist. 
+We need to break into a Highly Secured Vault, where we are going to steal something valuable from the vault.
+But while entering the castle, there will be multiple rooms with doors.
+When you cross or enter a door/room, there will be a Light Beam appearing at the entrance.
+You are going through a path, where the Light Beam is going to disappear when you exit from the same path you have come through, if you are not exiting from the same path, the Light Beam stays active.
+At the end of the Heist, you need to identify which Light Beams are active.
+
+********** Magically we can exit with the help of Doctor Strange's Portal, 
+
+Input : L1 L2 L3 L2 L1 L4 L5 L5 L4 
+Output : L3 
+
+Input : L1 L2 L3 L2 L1 L4 L5 L5 L4 L2 L7 L2 L7
+Output : L3 L7 
+
+
+arr = input().split()
+
+stack = []
+leaked = []
+
+for beam in arr:
+
+    skip = False
+    for x in leaked:
+        if x == beam:
+            skip = True
+            break
+
+    if skip:
+        continue
+
+    if len(stack) == 0:
+        stack.append(beam)
+        continue
+
+    if stack[-1] == beam:
+        stack.pop()
+        continue
+
+    pos = -1
+    for i in range(len(stack)):
+        if stack[i] == beam:
+            pos = i
+            break
+
+    if pos != -1:
+
+        i = len(stack) - 1
+        while i > pos:
+            found = False
+            for x in leaked:
+                if x == stack[i]:
+                    found = True
+                    break
+            if not found:
+                leaked.append(stack[i])
+            stack.pop()
+            i -= 1
+
+        stack.pop()
+
+    else:
+        stack.append(beam)
+
+answer = []
+
+for x in stack:
+    answer.append(x)
+
+for x in leaked:
+    found = False
+    for y in answer:
+        if x == y:
+            found = True
+            break
+    if not found:
+        answer.append(x)
+
+for x in answer:
+    print(x, end=" ")
+
+
+
+
+
+
+import java.util.Scanner;
+import java.util.Stack;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        String[] arr = sc.nextLine().split(" ");
+
+        Stack<String> stack = new Stack<>();
+        Stack<String> temp = new Stack<>();
+        Stack<String> leaked = new Stack<>();
+
+        for (String beam : arr) {
+
+            boolean skip = false;
+            for (String x : leaked) {
+                if (x.equals(beam)) {
+                    skip = true;
+                    break;
+                }
+            }
+
+            if (skip)
+                continue;
+
+            if (stack.isEmpty()) {
+                stack.push(beam);
+                continue;
+            }
+
+            if (stack.peek().equals(beam)) {
+                stack.pop();
+                continue;
+            }
+
+            boolean found = false;
+
+            while (!stack.isEmpty()) {
+
+                if (stack.peek().equals(beam)) {
+                    found = true;
+                    stack.pop();
+                    break;
+                }
+
+                temp.push(stack.pop());
+            }
+
+            if (found) {
+
+                while (!temp.isEmpty()) {
+
+                    String x = temp.pop();
+
+                    boolean exist = false;
+                    for (String y : leaked) {
+                        if (y.equals(x)) {
+                            exist = true;
+                            break;
+                        }
+                    }
+
+                    if (!exist)
+                        leaked.push(x);
+                }
+
+            } else {
+
+                while (!temp.isEmpty())
+                    stack.push(temp.pop());
+
+                stack.push(beam);
+            }
+        }
+
+        Stack<String> result = new Stack<>();
+
+        for (String x : stack)
+            result.push(x);
+
+        for (String x : leaked) {
+
+            boolean exist = false;
+
+            for (String y : result) {
+                if (y.equals(x)) {
+                    exist = true;
+                    break;
+                }
+            }
+
+            if (!exist)
+                result.push(x);
+        }
+
+        for (String x : result)
+            System.out.print(x + " ");
+    }
+}
+
+
+
+
+
+Input : Set of Commands after opening a Browser
+
+Open Google 
+Open Gmail 
+OPeN Purchases 
+back
+BACK
+OpEN Photos 
+oPEn Memories 
+back 
+exit
+
+Output : Current page in the Browser : Photos 
+
+Hint : Using a Stack 
+
+
+
+
+
+
+	if( command.equalsIgnoreCase("back"))
+	{
+		if( tos == -1)
+			print "Underflow"
+			break
+		tos--;
+	} 
+	if( command.equalsIgnoreCase("exit") ) 
+	{ 
+		is_exit = false;
+		if( tos == -1) 
+			print "Stack is Empty"
+			break;
+		print Array[ tos ];
+	} 	
+
+
+
+
+
+

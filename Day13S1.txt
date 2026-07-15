@@ -1,0 +1,1331 @@
+Hello Humans
+
+Today's questions are going to be very important for the CBT
+So practise welll and be good students, let us all try to finish the questions as we begin the ritual.
+
+
+1. Build the Stack using an Array 
+2. Build the Stack using a Linked List 
+3. Build Two Stacks using a single Array 
+4. 
+
+Functions in the Stack 
+Push 
+Pop
+Peek
+Access : 
+					If the access > top of Stack : print out of range 
+					If the access < tos and access >= 0 : print RESTRICTED ACCESS
+					If the access == tos : print display the element 
+										
+Display     : Should be popping out all the elements in the Stack as we go from top to bottom
+isEmpty   
+isFull
+
+Multiple operations < Function calls 
+
+
+
+
+Input : "Oggy"
+Output : "yggO"
+
+But with Stack 
+
+
+
+Input : "(a+(b-c)*d)/e"
+Output1 : ""
+Output2 : Result in Integer if the values in those variables are given
+
+
+Infix :    (a+(b-c)*d)/e 
+Prefix : /(+a*(-bc)d)e
+
+Infix :    a+b-c*d/e
+Prefix : -+ab/*cde
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import java.util.Scanner;
+
+class StackArray {
+    int arr[];
+    int top;
+    int size;
+
+    StackArray(int size) {
+        this.size = size;
+        arr = new int[size];
+        top = -1;
+    }
+
+    void push(int value) {
+        if (isFull()) {
+            System.out.println("Stack Overflow");
+            return;
+        }
+        arr[++top] = value;
+    }
+
+    void pop() {
+        if (isEmpty()) {
+            System.out.println("Stack Underflow");
+            return;
+        }
+        System.out.println("Popped : " + arr[top--]);
+    }
+
+    void peek() {
+        if (isEmpty()) {
+            System.out.println("Stack Empty");
+            return;
+        }
+        System.out.println(arr[top]);
+    }
+
+    void access(int index) {
+        if (index > top) {
+            System.out.println("Out of Range");
+        } else if (index >= 0 && index < top) {
+            System.out.println("RESTRICTED ACCESS");
+        } else if (index == top) {
+            System.out.println(arr[index]);
+        } else {
+            System.out.println("Invalid Index");
+        }
+    }
+
+    void display() {
+        if (isEmpty()) {
+            System.out.println("Stack Empty");
+            return;
+        }
+
+        while (!isEmpty()) {
+            System.out.print(arr[top] + " ");
+            top--;
+        }
+        System.out.println();
+    }
+
+    boolean isEmpty() {
+        return top == -1;
+    }
+
+    boolean isFull() {
+        return top == size - 1;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter Stack Size : ");
+        int size = sc.nextInt();
+
+        StackArray stack = new StackArray(size);
+
+        while (true) {
+            System.out.println("\n1.Push");
+            System.out.println("2.Pop");
+            System.out.println("3.Peek");
+            System.out.println("4.Access");
+            System.out.println("5.Display");
+            System.out.println("6.isEmpty");
+            System.out.println("7.isFull");
+            System.out.println("8.Exit");
+
+            int choice = sc.nextInt();
+
+            switch (choice) {
+
+                case 1:
+                    int value = sc.nextInt();
+                    stack.push(value);
+                    break;
+
+                case 2:
+                    stack.pop();
+                    break;
+
+                case 3:
+                    stack.peek();
+                    break;
+
+                case 4:
+                    int index = sc.nextInt();
+                    stack.access(index);
+                    break;
+
+                case 5:
+                    stack.display();
+                    break;
+
+                case 6:
+                    System.out.println(stack.isEmpty());
+                    break;
+
+                case 7:
+                    System.out.println(stack.isFull());
+                    break;
+
+                case 8:
+                    return;
+
+                default:
+                    System.out.println("Invalid Choice");
+            }
+        }
+    }
+}
+
+
+
+class Stack:
+
+    def __init__(self, size):
+        self.arr = [0] * size
+        self.size = size
+        self.top = -1
+
+    def isFull(self):
+        return self.top == self.size - 1
+
+    def isEmpty(self):
+        return self.top == -1
+
+    def push(self, value):
+        if self.isFull():
+            print("Stack Overflow")
+            return
+        self.top += 1
+        self.arr[self.top] = value
+
+    def pop(self):
+        if self.isEmpty():
+            print("Stack Underflow")
+            return
+        print("Popped :", self.arr[self.top])
+        self.top -= 1
+
+    def peek(self):
+        if self.isEmpty():
+            print("Stack Empty")
+            return
+        print(self.arr[self.top])
+
+    def access(self, index):
+        if index > self.top:
+            print("Out of Range")
+        elif index >= 0 and index < self.top:
+            print("RESTRICTED ACCESS")
+        elif index == self.top:
+            print(self.arr[index])
+        else:
+            print("Invalid Index")
+
+    def display(self):
+        if self.isEmpty():
+            print("Stack Empty")
+            return
+
+        while not self.isEmpty():
+            print(self.arr[self.top], end=" ")
+            self.top -= 1
+        print()
+
+
+size = int(input())
+
+stack = Stack(size)
+
+while True:
+
+    print("1.Push")
+    print("2.Pop")
+    print("3.Peek")
+    print("4.Access")
+    print("5.Display")
+    print("6.isEmpty")
+    print("7.isFull")
+    print("8.Exit")
+
+    choice = int(input())
+
+    if choice == 1:
+        value = int(input())
+        stack.push(value)
+
+    elif choice == 2:
+        stack.pop()
+
+    elif choice == 3:
+        stack.peek()
+
+    elif choice == 4:
+        index = int(input())
+        stack.access(index)
+
+    elif choice == 5:
+        stack.display()
+
+    elif choice == 6:
+        print(stack.isEmpty())
+
+    elif choice == 7:
+        print(stack.isFull())
+
+    elif choice == 8:
+        break
+
+    else:
+        print("Invalid Choice")
+
+
+
+
+import java.util.Scanner;
+
+class Stack {
+    char[] arr;
+    int top;
+
+    Stack(int size) {
+        arr = new char[size];
+        top = -1;
+    }
+
+    void push(char ch) {
+        arr[++top] = ch;
+    }
+
+    char pop() {
+        return arr[top--];
+    }
+
+    boolean isEmpty() {
+        return top == -1;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        String str = sc.nextLine();
+
+        Stack stack = new Stack(str.length());
+
+        for (int i = 0; i < str.length(); i++)
+            stack.push(str.charAt(i));
+
+        while (!stack.isEmpty())
+            System.out.print(stack.pop());
+    }
+}
+
+
+class Stack:
+
+    def __init__(self, size):
+        self.arr = [''] * size
+        self.top = -1
+
+    def push(self, ch):
+        self.top += 1
+        self.arr[self.top] = ch
+
+    def pop(self):
+        ch = self.arr[self.top]
+        self.top -= 1
+        return ch
+
+    def isEmpty(self):
+        return self.top == -1
+
+
+s = input()
+
+stack = Stack(len(s))
+
+for ch in s:
+    stack.push(ch)
+
+while not stack.isEmpty():
+    print(stack.pop(), end="")
+
+
+
+
+import java.util.Scanner;
+
+class Stack {
+    char[] arr;
+    int top;
+
+    Stack(int size) {
+        arr = new char[size];
+        top = -1;
+    }
+
+    void push(char ch) {
+        arr[++top] = ch;
+    }
+
+    char pop() {
+        return arr[top--];
+    }
+
+    boolean isEmpty() {
+        return top == -1;
+    }
+
+    char peek() {
+        return arr[top];
+    }
+}
+
+public class Main {
+
+    static boolean match(char a, char b) {
+        return (a == '(' && b == ')') ||
+               (a == '{' && b == '}') ||
+               (a == '[' && b == ']');
+    }
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        String exp = sc.nextLine();
+
+        Stack stack = new Stack(exp.length());
+
+        boolean ok = true;
+
+        for (int i = 0; i < exp.length(); i++) {
+
+            char ch = exp.charAt(i);
+
+            if (ch == '(' || ch == '{' || ch == '[')
+                stack.push(ch);
+
+            else if (ch == ')' || ch == '}' || ch == ']') {
+
+                if (stack.isEmpty()) {
+                    ok = false;
+                    break;
+                }
+
+                char t = stack.pop();
+
+                if (!match(t, ch)) {
+                    ok = false;
+                    break;
+                }
+            }
+        }
+
+        if (!stack.isEmpty())
+            ok = false;
+
+        if (ok)
+            System.out.println("Balanced");
+        else
+            System.out.println("Not Balanced");
+    }
+}
+
+
+class Stack:
+
+    def __init__(self, size):
+        self.arr = [''] * size
+        self.top = -1
+
+    def push(self, ch):
+        self.top += 1
+        self.arr[self.top] = ch
+
+    def pop(self):
+        ch = self.arr[self.top]
+        self.top -= 1
+        return ch
+
+    def isEmpty(self):
+        return self.top == -1
+
+
+def match(a, b):
+    return (a == '(' and b == ')') or \
+           (a == '{' and b == '}') or \
+           (a == '[' and b == ']')
+
+
+exp = input()
+
+stack = Stack(len(exp))
+
+ok = True
+
+for ch in exp:
+
+    if ch in "({[":
+        stack.push(ch)
+
+    elif ch in ")}]":
+
+        if stack.isEmpty():
+            ok = False
+            break
+
+        if not match(stack.pop(), ch):
+            ok = False
+            break
+
+if not stack.isEmpty():
+    ok = False
+
+if ok:
+    print("Balanced")
+else:
+    print("Not Balanced")
+
+
+import java.util.Scanner;
+
+class Stack {
+    char[] arr;
+    int top;
+
+    Stack(int size) {
+        arr = new char[size];
+        top = -1;
+    }
+
+    void push(char ch) {
+        arr[++top] = ch;
+    }
+
+    char pop() {
+        return arr[top--];
+    }
+
+    char peek() {
+        return arr[top];
+    }
+
+    boolean isEmpty() {
+        return top == -1;
+    }
+}
+
+public class Main {
+
+    static int priority(char ch) {
+
+        if (ch == '+' || ch == '-')
+            return 1;
+
+        if (ch == '*' || ch == '/')
+            return 2;
+
+        if (ch == '^')
+            return 3;
+
+        return 0;
+    }
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        String exp = sc.nextLine();
+
+        Stack stack = new Stack(exp.length());
+
+        String ans = "";
+
+        for (int i = 0; i < exp.length(); i++) {
+
+            char ch = exp.charAt(i);
+
+            if (Character.isLetterOrDigit(ch))
+                ans += ch;
+
+            else if (ch == '(')
+                stack.push(ch);
+
+            else if (ch == ')') {
+
+                while (!stack.isEmpty() && stack.peek() != '(')
+                    ans += stack.pop();
+
+                stack.pop();
+            }
+
+            else {
+
+                while (!stack.isEmpty() &&
+                        priority(stack.peek()) >= priority(ch))
+                    ans += stack.pop();
+
+                stack.push(ch);
+            }
+        }
+
+        while (!stack.isEmpty())
+            ans += stack.pop();
+
+        System.out.println(ans);
+    }
+}
+
+
+
+class Stack:
+
+    def __init__(self, size):
+        self.arr = [''] * size
+        self.top = -1
+
+    def push(self, ch):
+        self.top += 1
+        self.arr[self.top] = ch
+
+    def pop(self):
+        ch = self.arr[self.top]
+        self.top -= 1
+        return ch
+
+    def peek(self):
+        return self.arr[self.top]
+
+    def isEmpty(self):
+        return self.top == -1
+
+
+def priority(ch):
+    if ch in "+-":
+        return 1
+    if ch in "*/":
+        return 2
+    if ch == "^":
+        return 3
+    return 0
+
+
+exp = input()
+
+stack = Stack(len(exp))
+
+ans = ""
+
+for ch in exp:
+
+    if ch.isalnum():
+        ans += ch
+
+    elif ch == '(':
+        stack.push(ch)
+
+    elif ch == ')':
+
+        while not stack.isEmpty() and stack.peek() != '(':
+            ans += stack.pop()
+
+        stack.pop()
+
+    else:
+
+        while not stack.isEmpty() and priority(stack.peek()) >= priority(ch):
+            ans += stack.pop()
+
+        stack.push(ch)
+
+while not stack.isEmpty():
+    ans += stack.pop()
+
+print(ans)
+
+
+
+
+
+
+import java.util.Scanner;
+
+class Stack {
+
+    char[] arr;
+    int top;
+
+    Stack(int size) {
+        arr = new char[size];
+        top = -1;
+    }
+
+    void push(char ch) {
+        arr[++top] = ch;
+    }
+
+    char pop() {
+        return arr[top--];
+    }
+
+    char peek() {
+        return arr[top];
+    }
+
+    boolean isEmpty() {
+        return top == -1;
+    }
+}
+
+public class Main {
+
+    static int priority(char ch) {
+        if (ch == '+' || ch == '-')
+            return 1;
+        if (ch == '*' || ch == '/')
+            return 2;
+        if (ch == '^')
+            return 3;
+        return 0;
+    }
+
+    static String reverse(String s) {
+
+        char[] a = s.toCharArray();
+
+        int i = 0;
+        int j = a.length - 1;
+
+        while (i < j) {
+            char t = a[i];
+            a[i] = a[j];
+            a[j] = t;
+            i++;
+            j--;
+        }
+
+        return new String(a);
+    }
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        String exp = sc.nextLine();
+
+        exp = reverse(exp);
+
+        char[] ch = exp.toCharArray();
+
+        for (int i = 0; i < ch.length; i++) {
+
+            if (ch[i] == '(')
+                ch[i] = ')';
+
+            else if (ch[i] == ')')
+                ch[i] = '(';
+        }
+
+        Stack stack = new Stack(ch.length);
+
+        String post = "";
+
+        for (int i = 0; i < ch.length; i++) {
+
+            char c = ch[i];
+
+            if (Character.isLetterOrDigit(c))
+                post += c;
+
+            else if (c == '(')
+                stack.push(c);
+
+            else if (c == ')') {
+
+                while (!stack.isEmpty() && stack.peek() != '(')
+                    post += stack.pop();
+
+                stack.pop();
+            }
+
+            else {
+
+                while (!stack.isEmpty() &&
+                        priority(stack.peek()) >= priority(c))
+                    post += stack.pop();
+
+                stack.push(c);
+            }
+        }
+
+        while (!stack.isEmpty())
+            post += stack.pop();
+
+        System.out.println(reverse(post));
+    }
+}
+
+
+
+
+
+class Stack:
+
+    def __init__(self, size):
+        self.arr = [''] * size
+        self.top = -1
+
+    def push(self, ch):
+        self.top += 1
+        self.arr[self.top] = ch
+
+    def pop(self):
+        ch = self.arr[self.top]
+        self.top -= 1
+        return ch
+
+    def peek(self):
+        return self.arr[self.top]
+
+    def isEmpty(self):
+        return self.top == -1
+
+
+def priority(ch):
+    if ch in "+-":
+        return 1
+    if ch in "*/":
+        return 2
+    if ch == "^":
+        return 3
+    return 0
+
+
+exp = input()
+
+exp = exp[::-1]
+
+temp = ""
+
+for c in exp:
+    if c == '(':
+        temp += ')'
+    elif c == ')':
+        temp += '('
+    else:
+        temp += c
+
+stack = Stack(len(temp))
+
+post = ""
+
+for c in temp:
+
+    if c.isalnum():
+        post += c
+
+    elif c == '(':
+        stack.push(c)
+
+    elif c == ')':
+
+        while not stack.isEmpty() and stack.peek() != '(':
+            post += stack.pop()
+
+        stack.pop()
+
+    else:
+
+        while not stack.isEmpty() and priority(stack.peek()) >= priority(c):
+            post += stack.pop()
+
+        stack.push(c)
+
+while not stack.isEmpty():
+    post += stack.pop()
+
+print(post[::-1])
+
+
+
+import java.util.Scanner;
+
+class Stack {
+    int arr[];
+    int top;
+
+    Stack(int size) {
+        arr = new int[size];
+        top = -1;
+    }
+
+    void push(int x) {
+        arr[++top] = x;
+    }
+
+    int pop() {
+        return arr[top--];
+    }
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        String exp = sc.nextLine();
+
+        Stack stack = new Stack(exp.length());
+
+        for (int i = 0; i < exp.length(); i++) {
+
+            char ch = exp.charAt(i);
+
+            if (Character.isDigit(ch)) {
+                stack.push(ch - '0');
+            } else {
+
+                int b = stack.pop();
+                int a = stack.pop();
+                int ans = 0;
+
+                switch (ch) {
+
+                    case '+':
+                        ans = a + b;
+                        break;
+
+                    case '-':
+                        ans = a - b;
+                        break;
+
+                    case '*':
+                        ans = a * b;
+                        break;
+
+                    case '/':
+                        ans = a / b;
+                        break;
+
+                    case '^':
+                        ans = (int) Math.pow(a, b);
+                        break;
+                }
+
+                stack.push(ans);
+            }
+        }
+
+        System.out.println(stack.pop());
+    }
+}
+
+
+
+exp = input()
+
+stack = []
+
+for ch in exp:
+
+    if ch.isdigit():
+        stack.append(int(ch))
+
+    else:
+
+        b = stack.pop()
+        a = stack.pop()
+
+        if ch == '+':
+            stack.append(a + b)
+
+        elif ch == '-':
+            stack.append(a - b)
+
+        elif ch == '*':
+            stack.append(a * b)
+
+        elif ch == '/':
+            stack.append(a // b)
+
+        elif ch == '^':
+            stack.append(a ** b)
+
+print(stack.pop())
+
+
+import java.util.Scanner;
+
+class TwoStacks {
+
+    int arr[];
+    int top1;
+    int top2;
+    int size;
+
+    TwoStacks(int size) {
+        this.size = size;
+        arr = new int[size];
+        top1 = -1;
+        top2 = size;
+    }
+
+    void push1(int value) {
+
+        if (top1 + 1 == top2) {
+            System.out.println("Stack Overflow");
+            return;
+        }
+
+        arr[++top1] = value;
+    }
+
+    void push2(int value) {
+
+        if (top1 + 1 == top2) {
+            System.out.println("Stack Overflow");
+            return;
+        }
+
+        arr[--top2] = value;
+    }
+
+    void pop1() {
+
+        if (top1 == -1) {
+            System.out.println("Stack1 Empty");
+            return;
+        }
+
+        System.out.println("Popped : " + arr[top1--]);
+    }
+
+    void pop2() {
+
+        if (top2 == size) {
+            System.out.println("Stack2 Empty");
+            return;
+        }
+
+        System.out.println("Popped : " + arr[top2++]);
+    }
+
+    void peek1() {
+
+        if (top1 == -1) {
+            System.out.println("Stack1 Empty");
+            return;
+        }
+
+        System.out.println(arr[top1]);
+    }
+
+    void peek2() {
+
+        if (top2 == size) {
+            System.out.println("Stack2 Empty");
+            return;
+        }
+
+        System.out.println(arr[top2]);
+    }
+
+    void display1() {
+
+        if (top1 == -1) {
+            System.out.println("Stack1 Empty");
+            return;
+        }
+
+        for (int i = top1; i >= 0; i--)
+            System.out.print(arr[i] + " ");
+
+        System.out.println();
+    }
+
+    void display2() {
+
+        if (top2 == size) {
+            System.out.println("Stack2 Empty");
+            return;
+        }
+
+        for (int i = top2; i < size; i++)
+            System.out.print(arr[i] + " ");
+
+        System.out.println();
+    }
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter Size : ");
+        int n = sc.nextInt();
+
+        TwoStacks stack = new TwoStacks(n);
+
+        while (true) {
+
+            System.out.println("\n1 Push1");
+            System.out.println("2 Push2");
+            System.out.println("3 Pop1");
+            System.out.println("4 Pop2");
+            System.out.println("5 Peek1");
+            System.out.println("6 Peek2");
+            System.out.println("7 Display1");
+            System.out.println("8 Display2");
+            System.out.println("9 Exit");
+
+            int ch = sc.nextInt();
+
+            switch (ch) {
+
+                case 1:
+                    stack.push1(sc.nextInt());
+                    break;
+
+                case 2:
+                    stack.push2(sc.nextInt());
+                    break;
+
+                case 3:
+                    stack.pop1();
+                    break;
+
+                case 4:
+                    stack.pop2();
+                    break;
+
+                case 5:
+                    stack.peek1();
+                    break;
+
+                case 6:
+                    stack.peek2();
+                    break;
+
+                case 7:
+                    stack.display1();
+                    break;
+
+                case 8:
+                    stack.display2();
+                    break;
+
+                case 9:
+                    return;
+
+                default:
+                    System.out.println("Invalid Choice");
+            }
+        }
+    }
+}
+
+
+
+
+class TwoStacks:
+
+    def __init__(self, size):
+        self.arr = [0] * size
+        self.size = size
+        self.top1 = -1
+        self.top2 = size
+
+    def push1(self, value):
+
+        if self.top1 + 1 == self.top2:
+            print("Stack Overflow")
+            return
+
+        self.top1 += 1
+        self.arr[self.top1] = value
+
+    def push2(self, value):
+
+        if self.top1 + 1 == self.top2:
+            print("Stack Overflow")
+            return
+
+        self.top2 -= 1
+        self.arr[self.top2] = value
+
+    def pop1(self):
+
+        if self.top1 == -1:
+            print("Stack1 Empty")
+            return
+
+        print("Popped :", self.arr[self.top1])
+        self.top1 -= 1
+
+    def pop2(self):
+
+        if self.top2 == self.size:
+            print("Stack2 Empty")
+            return
+
+        print("Popped :", self.arr[self.top2])
+        self.top2 += 1
+
+    def peek1(self):
+
+        if self.top1 == -1:
+            print("Stack1 Empty")
+            return
+
+        print(self.arr[self.top1])
+
+    def peek2(self):
+
+        if self.top2 == self.size:
+            print("Stack2 Empty")
+            return
+
+        print(self.arr[self.top2])
+
+    def display1(self):
+
+        if self.top1 == -1:
+            print("Stack1 Empty")
+            return
+
+        for i in range(self.top1, -1, -1):
+            print(self.arr[i], end=" ")
+
+        print()
+
+    def display2(self):
+
+        if self.top2 == self.size:
+            print("Stack2 Empty")
+            return
+
+        for i in range(self.top2, self.size):
+            print(self.arr[i], end=" ")
+
+        print()
+
+
+n = int(input())
+
+stack = TwoStacks(n)
+
+while True:
+
+    print("\n1 Push1")
+    print("2 Push2")
+    print("3 Pop1")
+    print("4 Pop2")
+    print("5 Peek1")
+    print("6 Peek2")
+    print("7 Display1")
+    print("8 Display2")
+    print("9 Exit")
+
+    ch = int(input())
+
+    if ch == 1:
+        stack.push1(int(input()))
+
+    elif ch == 2:
+        stack.push2(int(input()))
+
+    elif ch == 3:
+        stack.pop1()
+
+    elif ch == 4:
+        stack.pop2()
+
+    elif ch == 5:
+        stack.peek1()
+
+    elif ch == 6:
+        stack.peek2()
+
+    elif ch == 7:
+        stack.display1()
+
+    elif ch == 8:
+        stack.display2()
+
+    elif ch == 9:
+        break
+
+    else:
+        print("Invalid Choice")
+
+
+Enter Size : 10
+
+1 Push1
+10
+
+1 Push1
+20
+
+2 Push2
+100
+
+2 Push2
+200
+
+7 Display1
+20 10
+
+8 Display2
+200 100
+
+5 Peek1
+20
+
+6 Peek2
+200
+
+3 Pop1
+Popped : 20
+
+4 Pop2
+Popped : 200
+
+
+
+
+
