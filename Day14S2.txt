@@ -1,0 +1,282 @@
+Build a Stack consisting of positive and negative values in it in the following order
+
+Input into the Stack:      69 -69 690 6 9 -6 -9 6969 -6969 
+
+Ouptut from the Stack : 69 -69 690 6 9 -6 -9 6969 -6969
+
+
+Stack : [ 69 -69 690 6 9 -6 -9 6969 -6969 ] 
+
+
+
+This approach is ❌
+for( i = 0 ; i< 9 ; i++) 
+	print Stack[i] 
+
+Stack : [ 69 -69 690 6 9 -6 -9 6969 -6969 ] 
+									top1
+top1 = 8 
+stack[ top1 ] 
+
+top2 = -1 
+reverse[ top2 ] 
+
+while( ! isEmpty )
+{ 
+	top2++; 
+	reverse.push() = stack[top1]
+	stack.pop()
+}
+
+displayReverse()
+{ 
+	while( ! isEmpty)
+	{ 
+		reverse.peek()
+		reverse.pop()
+	}
+}
+	
+
+
+
+
+
+
+
+
+
+Input Stack : 1 2 3 4 
+Integer to be stored at the Bottom : 0
+
+Output Stack : 4 3 2 1 0  
+
+
+
+while( ! isEmpty )
+{ 
+	top2++; 
+	reverse.push() = stack[top1]
+	stack.pop()
+}
+
+// reverse.push(data) 
+
+display()
+{ 
+	while( ! Reverse isEmpty)
+	{ 
+		stack.push(	reverse.pop() )
+	}
+}
+
+
+
+or stack.push(data)
+
+
+
+
+
+
+
+
+
+n = 4 
+fact(n)
+
+fact( int n) 
+{ 
+	if( n == 0)
+		return  1 
+	return n * fact(n-1);
+} 
+ 	
+
+
+
+
+
+reverseDisplay(stack, top, rev)
+{ 
+	if( isEmpty() )
+		 return 
+	int val = stack[top] 
+	rev.push(val)
+	stack.pop()
+	reverseDisplay(stack,top, rev)
+	// print val 
+}
+
+Stack Input : 1 2 3 4 
+
+display()
+{ 
+	while( ! isEmpty ) 
+	{ 
+		peek()
+		pop()
+	} 
+}
+
+
+
+
+
+
+
+
+
+insertAtBottom(stack, top, data)
+{ 
+	if( isEmpty() )
+		stack.push(data)
+		 return 
+	int val = stack[top] 
+	stack.pop()
+	insertAtBottom(stack, top, data)
+	stack.push(val)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1. Decimal  to Binary 
+2. Hexadecimal to Binary 
+3. Decimal to Octal 
+4. Hexadecimal to Octal 
+5. Octal to Binary 
+
+	using the Stack 
+
+
+
+n = int(input())
+
+stack = []
+
+if n == 0:
+    print(0)
+else:
+    while n > 0:
+        stack.append(n % 2)
+        n //= 2
+
+    while stack:
+        print(stack.pop(), end="")
+
+
+
+
+hex_num = input().upper()
+
+binary = [
+    "0000","0001","0010","0011",
+    "0100","0101","0110","0111",
+    "1000","1001","1010","1011",
+    "1100","1101","1110","1111"
+]
+
+stack = []
+
+for ch in hex_num[::-1]:
+    if '0' <= ch <= '9':
+        value = ord(ch) - ord('0')
+    else:
+        value = ord(ch) - ord('A') + 10
+
+    b = binary[value]
+
+    for bit in b[::-1]:
+        stack.append(bit)
+
+while stack:
+    print(stack.pop(), end="")
+
+
+
+
+n = int(input())
+
+stack = []
+
+if n == 0:
+    print(0)
+else:
+    while n > 0:
+        stack.append(n % 8)
+        n //= 8
+
+    while stack:
+        print(stack.pop(), end="")
+
+
+
+
+
+octal = input()
+
+binary = [
+    "000","001","010","011",
+    "100","101","110","111"
+]
+
+stack = []
+
+for ch in octal[::-1]:
+    b = binary[int(ch)]
+
+    for bit in b[::-1]:
+        stack.append(bit)
+
+while stack:
+    print(stack.pop(), end="")
+
+
+
+
+hex_num = input()
+
+decimal = int(hex_num, 16)
+
+stack = []
+
+if decimal == 0:
+    print(0)
+else:
+    while decimal > 0:
+        stack.append(decimal % 8)
+        decimal //= 8
+
+    while stack:
+        print(stack.pop(), end="")
+
+
+
+
+
+
+
